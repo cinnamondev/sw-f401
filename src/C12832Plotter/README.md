@@ -1,0 +1,1 @@
+Plan to make some basic curve plotter for TDB line sensor array demo to show where the line position is and where the scan prediction algorithm takes its next step etc. 

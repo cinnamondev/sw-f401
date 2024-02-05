@@ -1,10 +1,14 @@
-# mbed-stm32
+# sw-f401
 
-template with preconfigured rules for code styling etc
+## Quadrature encoder library
 
-set target for the stm32f401re nucleo board to
+USE PA6,7 PB6,7 for TIM3 TIM4  respectively for quadrature.
 
-NUCLEO-F401RE
+Quadrature component will use STM32 peripheral directly!
+
+PA6,7 PB6,7 shouldnt interfere with pins
+
+
 
 ## Guide: Changing to a shared instance.
 
