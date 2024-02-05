@@ -1,3 +1,5 @@
+#ifndef __QUADRATUREHPP_
+#define __QUADRATUREHPP_
 #include "mbed.h"
 #include "STM32F4xx_HAL_Driver/stm32f4xx_hal_tim.h"
 #include "STM32F4xx_HAL_Driver/stm32f4xx_hal_gpio.h"
@@ -46,3 +48,4 @@ class Quadrature {
     static float toForwardSpeed(float wheelDiameter);
 
 };
+#endif
