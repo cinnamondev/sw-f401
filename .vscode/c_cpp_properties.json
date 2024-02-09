@@ -8,6 +8,7 @@
         {
             "name": "PlatformIO",
             "includePath": [
+                "C:/Users/cinnamon/Documents/Projects/sw-f401/include",
                 "C:/Users/cinnamon/Documents/Projects/sw-f401/src",
                 "C:/Users/cinnamon/.platformio/packages/framework-mbed",
                 "C:/Users/cinnamon/Documents/Projects/sw-f401/.pio/build/nucleo_f401re",
@@ -350,6 +351,7 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
+                    "C:/Users/cinnamon/Documents/Projects/sw-f401/include",
                     "C:/Users/cinnamon/Documents/Projects/sw-f401/src",
                     "C:/Users/cinnamon/.platformio/packages/framework-mbed",
                     "C:/Users/cinnamon/Documents/Projects/sw-f401/.pio/build/nucleo_f401re",

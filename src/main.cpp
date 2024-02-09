@@ -7,6 +7,7 @@
 
 #include "mbed.h"
 
+#include "DS2871.hpp"
 /** Blinking rate (ms) */
 #define BLINKING_RATE 600ms
 

@@ -46,6 +46,7 @@ class Quadrature {
     float rotarySpeed(void);
     bool isActive(void);
     static float toForwardSpeed(float wheelDiameter);
+    void distanceEvent(Callback<void()> e, float)
 
 };
 #endif
