@@ -13,7 +13,7 @@ Quadrature::Quadrature(TIM_TypeDef* timer) {
     encoder.Init.CounterMode = TIM_COUNTERMODE_UP;
     encoder.Init.RepetitionCounter = 0;
 
-    encoderCfg.EncoderMode = TIM_ENCODERMODE_TI12; // x4 encoder
+    encoderCfg.EncoderMode = TIM_ENCODERMODE_TI12; // x4 encoder //Test
     
     encoderCfg.IC1Polarity = TIM_ICPOLARITY_RISING;
     encoderCfg.IC1Prescaler = TIM_ICPSC_DIV1;
