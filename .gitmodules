@@ -7,3 +7,6 @@
 [submodule "onewire-stm32"]
 	path = onewire-stm32
 	url = https://github.com/cinnamondev/onewire-stm32.git
+[submodule "CMSIS-DSP"]
+	path = CMSIS-DSP
+	url = https://github.com/ARM-software/CMSIS-DSP.git
