@@ -1,3 +1,6 @@
+#ifndef _DS2871_HPP_
+#define _DS2871_HPP_
+
 #include "mbed.h"
 #include "../onewire-stm32/OneWire.hpp"
 
@@ -25,3 +28,5 @@ class DS2871 : OneWire {
     float getCurrent(void);
     float getCurrentAvg(void);
 };
+
+#endif // DS2871.hpp

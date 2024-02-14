@@ -17,11 +17,11 @@
  */
 class Quadrature {
   TIM_HandleTypeDef encoder; /** STM32 Timer */
-  unsigned long stepsTaken = 0; /** Note for future impls: this always increases regardless of direction. */
-  float stepSpeed = 0;
   Callback<void()> stepsEvent = nullptr;
   unsigned long stepsEventThreshold = 0;
   bool runStepsEvent = false;
+  unsigned long stepsTaken = 0; /** Note for future impls: this always increases regardless of direction. */
+  float stepSpeed = 0;
 public:
   /**
    * @brief Construct a new Quadrature object

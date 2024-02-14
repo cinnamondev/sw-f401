@@ -10,7 +10,7 @@ void DS2871::eventTick(void) {
 void DS2871::onLowBattery(Callback<void()> e, std::chrono::milliseconds polling,
                           float targetVoltage) {
     event_lowBattery = e;
-    batteryEventListener.attach(callback(this, DS2871::eventTick), polling);
+    batteryEventListener.attach(callback(this, &DS2871::eventTick), polling);
 }
 
 void DS2871::stopListenLowBattery(void) {
