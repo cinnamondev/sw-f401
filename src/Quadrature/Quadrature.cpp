@@ -1,6 +1,8 @@
 #include "Quadrature.hpp"
 #include "STM32F4xx_HAL_Driver/stm32f4xx_hal_gpio.h"
 #include "STM32F4xx_HAL_Driver/stm32f4xx_hal_tim.h"
+#include <cstdlib>
+#include <cstdint>
 
 Quadrature::Quadrature(TIM_TypeDef *timer) {
   // https://github.com/STMicroelectronics/STM32CubeF4/blob/ec8744184587ef76b0e1704d1ee3e391f1aa2b90/Projects/STM324xG_EVAL/Examples/TIM/TIM_Encoder/Src/main.c
@@ -34,11 +36,10 @@ Quadrature::Quadrature(TIM_TypeDef *timer) {
 }
 void Quadrature::tick(void) {
   static unsigned long oldCnt = 0;
-  std::chrono::milliseconds t1 = 0ms;
+  static uint32_t t1 = 0;
   unsigned long cnt = encoder.Instance->CNT;
-  std::chrono::milliseconds t2 =
-      Kernel::Clock::now().time_since_epoch(); // tick count in ms
-  unsigned long delta = // Ensure that delta does not underflow
+  uint32_t t2 = us_ticker_read(); // us_ticker_read can provide higher res.
+  uint32_t delta = (t2 >= t1) ? (t2-t1) : (t1-t2); // prevent UF w/o larger type
       __HAL_TIM_IS_TIM_COUNTING_DOWN(&encoder) ? cnt - oldCnt : oldCnt - cnt;
   stepsTaken += cnt - oldCnt; // considered checking direction or using a larger
                               // size, but this function should not take long!!
@@ -59,18 +60,9 @@ bool Quadrature::getDirection(void) {
   return __HAL_TIM_IS_TIM_COUNTING_DOWN(&encoder);
 }
 
-float Quadrature::getSpeed() const { return stepSpeed; }
 void Quadrature::onStepsReached(Callback<void()> cb, unsigned long steps) {
   stepsEvent = cb;
   stepsEventThreshold = steps;
-  runStepsEvent = true;
-}
-
-void Quadrature::pauseStepsEvent() {
-  runStepsEvent = false;
-}
-
-void Quadrature::resumeStepsEvent() {
   runStepsEvent = true;
 }
 
@@ -79,7 +71,9 @@ void Quadrature::unregisterStepsEvent() {
   runStepsEvent = false;
 }
 
-
+float Quadrature::stepsToDegrees(unsigned long steps) {
+  return QUADRATURE_K_STP2DEG * (float)steps;
+}
 
 
 

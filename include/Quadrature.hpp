@@ -52,7 +52,7 @@ public:
    * \return true Counting up (forwards?)
    * \return false Counting down (backwards?)
    */
-  bool getDirection(void);`
+  bool getDirection(void);
  // NOTE TO SELF: getSteps should not be accessible? only distanceEvents.
   /**
    * \brief Returns number of steps taken cumulatively.
@@ -61,14 +61,14 @@ public:
    * \note This does not pay regard to turning direction, it will increase regardless of rotation direction.
    * \return Number of steps taken.
    */
-  unsigned long getSteps(void);
+  unsigned long getCurrentSteps(void) { return stepsTaken;}
   /**
    * \brief Return the number of degrees the shaft has turned cumulatively.
    * Does *not* reset after each revolution
    * \note This does not pay regard to turning direction, it will increase
    * regardless of rotation direction. \return
    */
-  float getDegrees(void);
+  static float stepsToDegrees(unsigned long steps);
   /**
    * \brief Returns the speed of the shaft in "encoder steps".
    *
@@ -77,7 +77,13 @@ public:
    *
    * \return Speed of encoder in 'steps'/second.
    */
-  float getSpeed(void) const;
+  float getCurrentSpeed(void) { return stepSpeed;}
+  /**
+   * \brief Returns a reference to the internal speed counter.
+   * \note Unless you really-really need to, c
+   * @return
+   */
+  const float& getSpeed(void) const { return stepSpeed; } // im really not a fan.
   /**
    * \brief Registers a steps event.
    * \note Upon reaching the number of step
@@ -88,11 +94,11 @@ public:
   /**
    * \brief Disables the execution of the steps event callback ('hold in reset')
    */
-  void pauseStepsEvent(void);
+  void pauseStepsEvent(void) { runStepsEvent = false; }
   /**
    * \brief Enables the execution of the steps event
    */
-  void resumeStepsEvent(void);
+  void resumeStepsEvent(void) { runStepsEvent = false; }
   /**
    * \brief Unregisters a steps event
    */
