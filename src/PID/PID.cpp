@@ -1,18 +1,31 @@
 #include "PID.hpp"
-
+PID::PID(PID::Range inputRange, PID::Range outputRange) {
+  setInputRange(inputRange);
+  setOutputRange(outputRange);
+}
 PID::PID(float setPoint, float *process, PID::Gains gains, PID::Range inputRange, PID::Range outputRange, std::chrono::microseconds computeInterval, bool startImmediately = false) {
-    setSetPoint(setPoint);
-    setPV(process);
-    setGains(gains);
-    setInputRange(inputRange);
-    setOutputRange(outputRange);
-    setInterval(computeInterval);
-    if (startImmediately) { start(); }
+    initialize(setPoint,process, gains, inputRange,outputRange,computeInterval);
 }
 PID::PID(PID::Gains gains, PID::Range inputRange, PID::Range outputRange, std::chrono::microseconds computeInterval) {
   setGains(gains);
   setInputRange(inputRange);
   setOutputRange(outputRange);
+}
+
+bool PID::initialize(float _setPoint, float *_process, PID::Gains gains, PID::Range inputRange, PID::Range outputRange, std::chrono::microseconds computeInterval, bool startImmediately) {
+  setSetPoint(_setPoint);
+  setPV(_process);
+  setGains(gains);
+  setInputRange(inputRange);
+  setOutputRange(outputRange);
+  setInterval(computeInterval);
+  if (!validate()) {return false;}
+  if (startImmediately) { start(); }
+  return true;
+}
+
+bool PID::validate() {
+  // TODO
 }
 
 void PID::start(void) {

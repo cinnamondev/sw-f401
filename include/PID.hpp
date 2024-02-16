@@ -24,10 +24,11 @@ public:
     float max;
     float range;
   };
+  PID(Range inputRange, Range outputRange);
   PID(float setPoint, float *process, Gains gains, Range inputRange, Range outputRange, std::chrono::microseconds computeInterval, bool startImmediately);
   PID(Gains gains, Range inputRange, Range outputRange, std::chrono::microseconds computeInterval);
-  bool PIDReady(void);
-  bool isReady(void);
+  bool initialize(float setPoint, float* process, Gains gains, Range inputRange, Range outputRange, std::chrono::microseconds computeInterval, bool startImmediately);
+  bool validate();
   void start(void);
   void stop(void);
   void reset(void);
