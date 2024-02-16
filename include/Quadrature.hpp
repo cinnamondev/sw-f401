@@ -83,7 +83,7 @@ public:
    * \note Unless you really-really need to, c
    * @return
    */
-  const float& getSpeed(void) const { return stepSpeed; } // im really not a fan.
+  const float* getSpeed(void) const { return &stepSpeed; } // im really not a fan.
   /**
    * \brief Registers a steps event.
    * \note Upon reaching the number of step
