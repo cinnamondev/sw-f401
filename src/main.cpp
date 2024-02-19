@@ -32,11 +32,11 @@ int main() {
   //quadratureUpdate.attach(callback([&encoderR]() {
   //                            encoderR.tick();
   //                          }), 10ms);
-  QEI encoderR(D0, D1, NC, 255);
+  QEI encoderR(PB_13, PB_14, NC, 255);
+  encoderR.reset();
   // d5 d9 quadrature tim3
   //Motor motorL(D1, D2, &encoderL);
-  Motor motorR(A3, A4, &encoderR);
+  Motor motorR(D9, NC, &encoderR);
   Sequencer sequencer(&motorR,&motorR,std::vector<Movement*> {new Line(1000), new Line(1000)});
   sequencer.play();
-  while (true);
 }

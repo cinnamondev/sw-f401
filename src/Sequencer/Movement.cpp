@@ -21,6 +21,6 @@ void Movement::start(Motor* l, Motor* r, Callback<void()> eventFinish) {
   r->setPWM(pwmOutR);
 }
 
-Line::Line(int distance) : Movement(0.5,0.5,distance){
+Line::Line(int distance) : Movement(0.7,0.7,distance){
 
 }
