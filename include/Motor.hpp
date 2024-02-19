@@ -4,16 +4,18 @@
 #include "Quadrature.hpp"
 #include "mbed.h"
 #include "PID.hpp"
+#include "QEI.hpp"
 // compile time mode define MOTOR_USE_BIPOLAR alt mode
 class Motor : protected PID {
 public:
+  class QEI *encoder;
   enum Controller { EncoderControlled, CurrentControlled, OperatorControlled };
   /**
    * The direction the motor turns (relative to itself).
    */
   enum Direction { Forwards, Backwards };
-  Motor(PinName pwm, PinName current, Quadrature *encoder);
-  Motor(PinName pwm, PinName current, Quadrature *encoder, Motor::Controller mode);
+  Motor(PinName pwm, PinName current, QEI *encoder);
+  Motor(PinName pwm, PinName current, QEI *encoder, Motor::Controller mode);
   void PIDInit(PID::Gains g, PID::Range rangeIn, PID::Range rangeOut);
   void setMode(Controller mode);
   /**
@@ -28,7 +30,6 @@ private:
   AnalogIn currentMonitor;
   Controller controllerMode;
   Direction direction;
-  class Quadrature *encoder;
 
   void onCompute(float result) override;
 

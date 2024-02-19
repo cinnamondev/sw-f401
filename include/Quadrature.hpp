@@ -1,8 +1,9 @@
 #ifndef QUADRATUREHPP_
 #define QUADRATUREHPP_
-#include "STM32F4xx_HAL_Driver/stm32f4xx_hal_gpio.h"
-#include "STM32F4xx_HAL_Driver/stm32f4xx_hal_tim.h"
+#include "stm32f4xx.h"
 #include "mbed.h"
+
+#
 
 
 #define QUADRATURE_K_STP2DEG (360.0/256.0)
@@ -103,5 +104,7 @@ public:
    * \brief Unregisters a steps event
    */
   void unregisterStepsEvent(void);
+  void ready(void) { HAL_TIM_Encoder_Start(&encoder, TIM_CHANNEL_ALL);}
+  void stopTimer(void) { HAL_TIM_Encoder_Stop(&encoder, TIM_CHANNEL_ALL); }
 };
 #endif // QUADRATUREHPP_

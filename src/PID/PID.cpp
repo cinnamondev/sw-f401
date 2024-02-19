@@ -4,7 +4,7 @@ PID::PID(PID::Range inputRange, PID::Range outputRange) {
   setOutputRange(outputRange);
 }
 PID::PID(float setPoint, float *process, PID::Gains gains, PID::Range inputRange, PID::Range outputRange, std::chrono::microseconds computeInterval, bool startImmediately = false) {
-    initialize(setPoint,process, gains, inputRange,outputRange,computeInterval);
+    initialize(setPoint,process, gains, inputRange,outputRange,computeInterval, startImmediately);
 }
 PID::PID(PID::Gains gains, PID::Range inputRange, PID::Range outputRange, std::chrono::microseconds computeInterval) {
   setGains(gains);
@@ -119,6 +119,8 @@ float PID::compute(void) {
     output = outRange.min;
   }
   pid.state[2] = output;
+
+  return output;
 }
 
 void PID::tick(void) {

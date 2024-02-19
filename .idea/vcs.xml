@@ -2,8 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/CMSIS-DSP" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/doxygen-awesome-css" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/mbed-dsp" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/mbed-os" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/onewire-stm32" vcs="Git" />
   </component>

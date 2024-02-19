@@ -6,7 +6,7 @@
 
 #include <chrono>
 #include "mbed.h"
-#include "../CMSIS-DSP/Include/arm_math.h"
+#include "../mbed-dsp/cmsis_dsp/arm_math.h"
 #include <limits>
 
 /**
