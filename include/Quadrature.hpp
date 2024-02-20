@@ -2,11 +2,15 @@
 #define QUADRATUREHPP_
 #include "stm32f4xx.h"
 #include "mbed.h"
+#define QUADRATURE_K_STP2DEG (360.0/255.0)
 
-#
+float stepsToDegrees(unsigned int stepsPerRevolution, unsigned int steps) {
+  return float(steps) * (360.0f/float(stepsPerRevolution));
+}
 
-
-#define QUADRATURE_K_STP2DEG (360.0/256.0)
+int degreesToSteps(float degrees, int stepsPerRevolution) {
+  return degrees * (float(stepsPerRevolution)/360.0f);
+}
 /**
  * \brief Generic Quadrature encoder
  *

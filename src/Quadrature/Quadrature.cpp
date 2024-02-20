@@ -5,6 +5,9 @@
 #include <cstdlib>
 #include <cstdint>
 
+// TODO: Figure out why Quadrature module is not friendly, in the meantime
+// please use QEI.
+
 Quadrature::Quadrature(TIM_TypeDef *timer) {
   // https://github.com/STMicroelectronics/STM32CubeF4/blob/ec8744184587ef76b0e1704d1ee3e391f1aa2b90/Projects/STM324xG_EVAL/Examples/TIM/TIM_Encoder/Src/main.c
   //  configuration code based on ^^
