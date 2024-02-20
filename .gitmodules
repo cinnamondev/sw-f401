@@ -10,3 +10,6 @@
 [submodule "mbed-dsp"]
 	path = mbed-dsp
 	url = https://github.com/cinnamondev/mbed-dsp.git
+[submodule "c12832"]
+	path = c12832
+	url = https://github.com/cinnamondev/c12832.git

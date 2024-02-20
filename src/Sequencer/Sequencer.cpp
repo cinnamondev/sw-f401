@@ -9,12 +9,23 @@ void Sequencer::add(Movement *movement) {
   movements.push_back(movement);
 }
 
+void Sequencer::startNMovement() {
+  movements[n]->onStepsGoal(callback(this,&Sequencer::advance));
+  movements[n]->start(l,r,callback(this,&Sequencer::advance));
+}
 void Sequencer::advance() {
   n++;
-  if (n == movements.size()) { play(); } else { finishedCallback(); }
+  if (n < movements.size()) { startNMovement(); } else {
+    finishedCallback();
+    if(doesRepeat) { play(); }
+  }
 }
 
 void Sequencer::play(void) {
-  movements[n]->onStepsGoal(callback(this,&Sequencer::advance));
-  movements[n]->start(l,r,callback(this,&Sequencer::advance));
+  n = 0;
+  startNMovement();
+}
+
+void Sequencer::repeats(bool repeat) {
+  doesRepeat = repeat;
 }
