@@ -7,12 +7,16 @@
 
 #include "mbed.h"
 #include "Bluetooth.hpp"
-/**
- * @brief Blink LED @ rate of BLINKING_RATE.
- */
 
+#ifdef DEMO_CONFIG_REDIRECT_STDIO_HM10
+// If macro enabled redirect PRINTF to BLE MODULE :)
+static BufferedSerial hm10(NC,NC,9600);
+namespace mbed {
+FileHandle *mbed_target_override_console(int) {
+  return &hm10;
+}
+#endif
 DigitalOut led(LED1,0);
-
 void toggleLED(char c) {
   static bool ledOn = false;
   ledOn=!ledOn;

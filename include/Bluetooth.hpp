@@ -42,6 +42,12 @@ public:
    */
   Bluetooth(PinName tx, PinName rx, std::vector<Command> cmds = {});
   /**
+   * Create a HM10 Bluetooth Module
+   * @param module Existing HM10 module serial interface
+   * @param cmds Default command set (optional)
+   */
+  Bluetooth(BufferedSerial* module, std::vector<Command> cmds = {});
+  /**
    * Start polling for new commands
    * @param pollingInterval Polling period (defaults to 100 ms)
    */
@@ -78,7 +84,7 @@ public:
 private:
   bool started = false;
   Ticker ticker;
-  BufferedSerial hm10;
+  BufferedSerial* hm10;
   char b = 0;
   /** List of currently registered bluetooth commands */
   std::vector<Command> commands;
