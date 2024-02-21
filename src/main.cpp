@@ -10,6 +10,7 @@
 #include "Sequencer.hpp"
 #include "mbed.h"
 
+#include "Bluetooth.hpp"
 C12832 display(D11, D13, D12, D7, D10);
 // QEI encoderL(PB_6, PB_7, NC, 255);
 QEI encoderL(PB_12, PB_7, NC, 255, QEI::X4_ENCODING);
