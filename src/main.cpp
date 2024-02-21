@@ -1,7 +1,7 @@
 /**
  * @file main.cpp
  * @author your name (you@domain.com)
- * @brief
+ * @brief 
  * @date 2023-10-29
  */
 
@@ -9,7 +9,6 @@
 #include "QEI.hpp"
 #include "Sequencer.hpp"
 #include "mbed.h"
-
 #include "Bluetooth.hpp"
 C12832 display(D11, D13, D12, D7, D10);
 // QEI encoderL(PB_6, PB_7, NC, 255);
@@ -42,7 +41,6 @@ void refreshDisplay(C12832 *d) {
     ThisThread::sleep_for(10ms);
   }
 }
-
 int main() {
   enable = 0;
   motorL.setPWM(0.5);

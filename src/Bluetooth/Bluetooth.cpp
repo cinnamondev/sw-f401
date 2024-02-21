@@ -3,12 +3,16 @@
 #include <utility>
 
 Bluetooth::Bluetooth(PinName tx, PinName rx, std::vector<Command> cmds)
-    : hm10(tx, rx, 9600), commands(std::move(cmds)) {
-  hm10.set_blocking(false);
+    : hm10(new BufferedSerial(tx, rx, 9600)), commands(std::move(cmds)) {
+  hm10->set_blocking(false);
+}
+
+Bluetooth::Bluetooth(BufferedSerial *module, vector<Command> cmds) : hm10(module), commands(cmds) {
+  hm10->set_blocking(false);
 }
 
 void Bluetooth::tick(void) {
-  if (hm10.read(&b, 1) == EAGAIN) { return; }
+  if (hm10->read(&b, 1) == EAGAIN) { return; }
   for (const auto customCommand : commands) {
     if ((b & customCommand.mask) == customCommand.cmd) {
       if (customCommand.executeCommand != nullptr) {
@@ -45,7 +49,6 @@ void Bluetooth::removeCommand(char cmd) {
 void Bluetooth::reset(void) {
   commands = {};
 }
-
 
 Bluetooth::Command Bluetooth::Command::build(char cmd, Callback<void(char)> callback, char mask) {
   return Bluetooth::Command {
