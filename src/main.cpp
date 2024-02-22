@@ -1,25 +1,41 @@
 /**
  * @file main.cpp
- * @author your name (you@domain.com)
- * @brief 
+ * @author cinnamondev
  * @date 2023-10-29
+ *
+ * Technical Demo A program Task 3/4
  */
 
+#include "../c12832/C12832.h"
 #include "mbed.h"
 
-#include "DS2871.hpp"
-/** Blinking rate (ms) */
-#define BLINKING_RATE 600ms
+// PwmOut motorL(PB_13);
+PwmOut motorR(PB_14);
 
-/**
- * @brief Blink LED @ rate of BLINKING_RATE.
- */
+InterruptIn enableSwitch(A2);
+InterruptIn disableSwitch(A3);
 int main() {
-  // Initialise the digital pin LED1 as an output
-  DigitalOut led(LED1);
+  auto *enable = new DigitalOut(A4, 0);
+  AnalogIn potL(A0);
+  AnalogIn potR(A1);
 
+  motorR.period_us(20);
+  motorR = 0.5;
+  // QEI encoderR(PB_13, PB_14, NC, 255);
+  enableSwitch.fall(callback([enable]() { enable->write(0); }));
+  disableSwitch.fall(callback([enable]() { enable->write(1); }));
+  float outL = 0.5;
+  float outR = 0.5;
   while (true) {
-    led = !led;
-    ThisThread::sleep_for(BLINKING_RATE);
+    outL = potL.read();
+    outR = potR.read();
+    if ((0.4 < outL) & (outL < 0.6)) {
+      outL = 0.5;
+    }
+    if ((0.4 < outR) & (outR < 0.6)) {
+      outR = 0.5;
+    }
+    // motorL = outL;
+    motorR = outR;
   }
 }
