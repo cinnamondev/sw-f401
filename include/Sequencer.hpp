@@ -4,6 +4,7 @@
 #include <vector>
 
 class Sequencer {
+  DigitalOut* driver_en;
   bool doesRepeat = false;
   std::vector<Movement*> movements;
   size_t n = 0;
@@ -13,8 +14,8 @@ class Sequencer {
   Motor* r;
   void startNMovement(void);
 public:
-  Sequencer(Motor* l, Motor* r);
-  Sequencer(Motor* l, Motor* r, std::vector<Movement*> movements);
+  Sequencer(Motor* l, Motor* r, DigitalOut* en);
+  Sequencer(Motor* l, Motor* r, DigitalOut* en, std::vector<Movement*> movements);
   void add(Movement* movement);
   void onFinished(Callback<void()> cb) { finishedCallback = cb; }
   void play(void);

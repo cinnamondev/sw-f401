@@ -280,7 +280,11 @@ void QEI::encode(void) {
 
  prevState_ = currState_;
 
- if (abs(pulses_) > distanceThreshold) { distanceEvent(); }
+  if ((abs(pulses_) > distanceThreshold) && (distanceEvent != nullptr) && !eventFired) {
+    eventFired = true;
+    distanceEvent();
+    reset();
+ }
 }
 
 void QEI::index(void) {

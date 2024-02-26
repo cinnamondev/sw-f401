@@ -178,7 +178,12 @@ public:
   */
  QEI(PinName channelA, PinName channelB, PinName index, int pulsesPerRev, Encoding encoding = X2_ENCODING);
 
- void registerDistanceEvent(int pulses, Callback<void()> e) { distanceEvent = e; }
+ void registerDistanceEvent(int pulses, Callback<void()> e) {
+   reset();
+   distanceThreshold = pulses;
+   distanceEvent = e;
+   eventFired = false;
+ }
  /**
     * Reset the encoder.
     *
@@ -234,7 +239,7 @@ private:
  InterruptIn index_;
  Callback<void()> distanceEvent;
  int distanceThreshold;
-
+ bool eventFired = false;
  int          pulsesPerRev_;
  int          prevState_;
  int          currState_;
