@@ -59,7 +59,7 @@ void Quadrature::tick(void) {
                               // size, but this function should not take long!!
   // steps/ms. Converting cnt and oldCnt to float independently lets us
   // do some signed magic. It is important that this is signed!s
-  stepSpeed = (float(cnt) - float(oldCnt)) / float(t2 - t1);
+  stepSpeed = (float(cnt) - float(oldCnt)) / float(delta);
   oldCnt = cnt; // Current values will be used as old values next 'tick'.
   t1 = t2;
 
@@ -85,11 +85,5 @@ void Quadrature::unregisterStepsEvent() {
   stepsEvent = nullptr;
   runStepsEvent = false;
 }
-
-float Quadrature::stepsToDegrees(unsigned long steps) {
-  return QUADRATURE_K_STP2DEG * (float)steps;
-}
-
-
 
 

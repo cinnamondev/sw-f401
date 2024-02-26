@@ -26,5 +26,5 @@ Line::Line(int distance) : Movement(0.7,0.7,distance){
 
 }
 
-Turn::Turn(float degrees) : Movement((degrees > 0) ? 0.7 : (degrees > 0) ? -0.7 : 0.7,
-                                     stepsToDegrees(255,)) {}
+Turn::Turn(float degrees) : Movement((degrees > 0) ? 0.7 : -0.7, (degrees > 0) ? -0.7 : 0.7,
+                                     degreesToSteps(degrees, 255)) {}

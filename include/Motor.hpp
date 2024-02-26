@@ -1,7 +1,6 @@
 #ifndef __MOTOR_INC_
 #define __MOTOR_INC_
 
-#include "Quadrature.hpp"
 #include "mbed.h"
 #include "PID.hpp"
 #include "QEI.hpp"

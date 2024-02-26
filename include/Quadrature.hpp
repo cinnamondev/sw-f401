@@ -1,16 +1,15 @@
 #ifndef QUADRATUREHPP_
 #define QUADRATUREHPP_
+#include <cmath>
 #include "stm32f4xx.h"
 #include "mbed.h"
+
 #define QUADRATURE_K_STP2DEG (360.0/255.0)
 
-float stepsToDegrees(unsigned int stepsPerRevolution, unsigned int steps) {
-  return float(steps) * (360.0f/float(stepsPerRevolution));
-}
+float stepsToDegrees(unsigned int stepsPerRevolution, unsigned int steps);
+int degreesToSteps(float degrees, int stepsPerRevolution);
+int distanceToSteps(float distanceMM, float diameterMM, int stepsPerRevolution);
 
-int degreesToSteps(float degrees, int stepsPerRevolution) {
-  return degrees * (float(stepsPerRevolution)/360.0f);
-}
 /**
  * \brief Generic Quadrature encoder
  *
@@ -67,13 +66,6 @@ public:
    * \return Number of steps taken.
    */
   unsigned long getCurrentSteps(void) { return stepsTaken;}
-  /**
-   * \brief Return the number of degrees the shaft has turned cumulatively.
-   * Does *not* reset after each revolution
-   * \note This does not pay regard to turning direction, it will increase
-   * regardless of rotation direction. \return
-   */
-  static float stepsToDegrees(unsigned long steps);
   /**
    * \brief Returns the speed of the shaft in "encoder steps".
    *

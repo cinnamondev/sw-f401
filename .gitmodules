@@ -13,3 +13,4 @@
 [submodule "c12832"]
 	path = c12832
 	url = https://github.com/cinnamondev/c12832.git
+	branch = mbedOS-6

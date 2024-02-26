@@ -16,7 +16,7 @@ void Sequencer::startNMovement() {
 void Sequencer::advance() {
   n++;
   if (n < movements.size()) { startNMovement(); } else {
-    finishedCallback();
+    if (finishedCallback != nullptr) finishedCallback();
     if(doesRepeat) { play(); }
   }
 }
