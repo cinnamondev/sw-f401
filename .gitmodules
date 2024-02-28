@@ -7,3 +7,10 @@
 [submodule "onewire-stm32"]
 	path = onewire-stm32
 	url = https://github.com/cinnamondev/onewire-stm32.git
+[submodule "mbed-dsp"]
+	path = mbed-dsp
+	url = https://github.com/cinnamondev/mbed-dsp.git
+[submodule "c12832"]
+	path = c12832
+	url = https://github.com/cinnamondev/c12832.git
+	branch = mbedOS-6

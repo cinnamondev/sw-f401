@@ -36,9 +36,8 @@
 *.map
 
 BUILD/*
-BUILD
 .mbed
 mbed-os
 docs/
-.pio/*
 .idea/*
+.pio/*
