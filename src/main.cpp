@@ -6,20 +6,22 @@
  * Technical Demo A program Task 3/4
  */
 
-#include "../c12832/C12832.h"
 #include "mbed.h"
 
-// PwmOut motorL(PB_13);
-PwmOut motorR(PB_14);
+//PwmOut motorL(PA_8);
+PwmOut motorL(PB_1);
+PwmOut motorR(PC_7);
 
 InterruptIn enableSwitch(A2);
 InterruptIn disableSwitch(A3);
 int main() {
-  auto *enable = new DigitalOut(A4, 0);
+  auto *enable = new DigitalOut(PB_2, 0);
   AnalogIn potL(A0);
   AnalogIn potR(A1);
 
+  motorL.period_us(20);
   motorR.period_us(20);
+  motorL=0.5;
   motorR = 0.5;
   // QEI encoderR(PB_13, PB_14, NC, 255);
   enableSwitch.fall(callback([enable]() { enable->write(0); }));
@@ -29,13 +31,13 @@ int main() {
   while (true) {
     outL = potL.read();
     outR = potR.read();
-    if ((0.4 < outL) & (outL < 0.6)) {
+    if ((0.45 < outL) & (outL < 0.55)) {
       outL = 0.5;
     }
-    if ((0.4 < outR) & (outR < 0.6)) {
+    if ((0.45 < outR) & (outR < 0.55)) {
       outR = 0.5;
     }
-    // motorL = outL;
+     motorL = outL;
     motorR = outR;
   }
 }
