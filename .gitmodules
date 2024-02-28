@@ -1,12 +1,6 @@
-[submodule "mbed-os"]
-	path = mbed-os
-	url = https://github.com/ARMmbed/mbed-os
 [submodule "doxygen-awesome-css"]
 	path = doxygen-awesome-css
 	url = https://github.com/jothepro/doxygen-awesome-css.git
-[submodule "onewire-stm32"]
-	path = onewire-stm32
-	url = https://github.com/cinnamondev/onewire-stm32.git
 [submodule "mbed-dsp"]
 	path = mbed-dsp
 	url = https://github.com/cinnamondev/mbed-dsp.git
