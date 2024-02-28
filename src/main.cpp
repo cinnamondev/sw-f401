@@ -19,6 +19,7 @@ Motor motorL(PB_1, A5, &encoderL);
 QEI encoderR(PC_3, PC_2, NC, 255, QEI::X4_ENCODING);
 Motor motorR(PC_7, A4, &encoderR);
 
+DigitalOut LED(D1);
 DigitalOut enable(PB_2, 0);
 // Thread displayThread;
 
@@ -41,32 +42,53 @@ void refreshDisplay(C12832 *d) {
     ThisThread::sleep_for(10ms);
   }
 }
+int S1M = distanceToSteps(50, 80, 256*8);
+Sequencer sequencer(&motorL, &motorR, &enable,
+                    std::vector<Movement *>{
+                        new Line(S1M),
+                        new Turn(90),
+                        new Line(S1M),
+                        new Turn(90),
+                        new Line(S1M),
+                        new Turn(90),
+                        new Line(S1M),
+                        new Turn(180),
+                        new Line(S1M),
+                        new Turn(-90),
+                        new Line(S1M),
+                        new Turn(-90),
+                        new Line(S1M),
+                        new Turn(-90),
+                        new Line(S1M),
+                    });
+
+void sequencerStart(char c) {
+  sequencer.play();
+}
+
+void ledToggle(char c) {
+  bool on = LED.read();
+  LED.write(!on);
+}
 int main() {
   enable = 0;
   motorL.setPWM(0.5);
   motorR.setPWM(0.5);
   // displayThread.start(callback(&refreshDisplay, &display));
-  int S1M = distanceToSteps(50, 80, 256*8);
-  Sequencer sequencer(&motorL, &motorR, &enable,
-                      std::vector<Movement *>{
-                          new Line(S1M),
-                          new Turn(90),
-                          new Line(S1M),
-                          new Turn(90),
-                          new Line(S1M),
-                          new Turn(90),
-                          new Line(S1M),
-                          new Turn(180),
-                          new Line(S1M),
-                          new Turn(-90),
-                          new Line(S1M),
-                          new Turn(-90),
-                          new Line(S1M),
-                          new Turn(-90),
-                          new Line(S1M),
-                      });
   sequencer.repeats(false);
-  sequencer.play();
+  Bluetooth bluetooth(PA_3,PA_2, std::vector<Bluetooth::Command> {
+                        Bluetooth::Command {
+                            .cmd  = 0x01,
+                            .mask = 0xFF,
+                            .executeCommand = callback(&sequencerStart),
+                        },
+                        Bluetooth::Command {
+                                      .cmd = 0x02,
+                                      .mask = 0xFF,
+                                      .executeCommand = callback(&ledToggle),
+                                  },
+                    });
+  bluetooth.start(10ms);
 
   while (true)
     ;
