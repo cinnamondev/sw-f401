@@ -1,10 +1,10 @@
-# Embedded Systems Project 2023/24
+# ESP Buggy Firmware
 
-## Dependencies
+Buggy firmware for the Nucleo-F401RE.
 
-- Mbed 6.17.1
-
-## Setup
+The ESP is a group project, which will end with all groups constructing
+a custom buggy design, which can drive autonomously.
+## Building
 
 ### Development environment
 Using either:
