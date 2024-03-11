@@ -91,6 +91,7 @@ private:
   BufferedSerial* s;
   /** Collection of registered commands */
   std::vector<Command> commands;
+  void onSigio();
   /**
    * Periodically pulls a byte from the buffer to see if new commands have been
    * received. If a new command is received, it will make a deferred call to

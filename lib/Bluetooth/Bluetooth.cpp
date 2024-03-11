@@ -4,22 +4,20 @@ Bluetooth::Bluetooth(mbed::BufferedSerial *serial,
                      std::vector<Command> commands, bool startNow,
                      std::chrono::microseconds pollInterval)
     : s(serial), commands(std::move(commands)) {
-  s->set_blocking(false);
-  char aliveResponse[9] = "I'm Blue";
-  if (s->writable()) {
-    s->write(aliveResponse, 9);
-  }
   if (startNow) {
     start();
   }
 }
 
+void Bluetooth::onSigio() {
+  sQueue->call(this, &Bluetooth::poll);
+}
 void Bluetooth::poll() {
   uint8_t cIn; // Store latest command
-  if (s->readable() && s->read(&cIn, 1) > 0) {
+  if (s->read(&cIn, 1) > 0) { // flush + process
     commandParser(cIn);
-    //sQueue->event(callback(this, &Bluetooth::commandParser), cIn);
   }
+  s->sync();
 }
 
 void Bluetooth::addCommand(Bluetooth::Command cmd) { commands.push_back(cmd); }
@@ -43,7 +41,7 @@ void Bluetooth::removeCommand(uint8_t cmd) {
 }
 
 void Bluetooth::start() {
-  s->sigio(callback(this, &Bluetooth::poll));
+  s->sigio(callback(this, &Bluetooth::onSigio));
 }
 
 void Bluetooth::stop() { s->sigio(nullptr); }

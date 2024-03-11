@@ -4,13 +4,12 @@
 
 #include "Bluetooth.hpp"
 
-BufferedSerial bleSerial(PA_11,PA_12);
+BufferedSerial bleSerial(PA_11,PA_12,9600);
 
-/*
 FileHandle* mbed::mbed_target_override_console(int fd) {
-  return &_bleSerial;
+  return &bleSerial;
 }
- */
+
 
 DigitalOut out(LED1);
 void toggleLED(uint8_t cmd) {
@@ -23,5 +22,6 @@ int main(void) {
                                        Bluetooth::Command('A', 0xFF, callback(&toggleLED)),
                                    }, true);
   while (true) {
+    // spinnys
   }
 }
