@@ -29,8 +29,8 @@ Then build with your IDE, or:
 
 Refer to the [wiring diagram](https://github.com/embedded-systems-30/wiring-diagram).
 
-## Thanks to:
+## bleConsole
 
-- The contributors of the [C12832](https://os.mbed.com/teams/components/code/C12832/) library.
-This project uses a modified version available [here](https://github.com/cinnamondev/C12832/tree/mbedOS-6), which allows it to be used with the latest version of Mbed OS.
-
+Use bleConsole for stdio debugging & command control.
+Install `bleak` and `aioconsole` to use, some properties may need to be changed.
+HM-10 module should always use the same characteristic UUID for UART service, the script uses the device name to identify it, which is likely different for you.

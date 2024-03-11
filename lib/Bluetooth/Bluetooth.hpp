@@ -1,113 +1,82 @@
-/**
- * @file Bluetooth.hpp
- * @author cinnamondev
- *
- * HM-10 Bluetooth Module
- */
-
-#ifndef SW_F401_HM10_HPP
-#define SW_F401_HM10_HPP
+#ifndef __BLUETOOTH_HPP
+#define __BLUETOOTH_HPP
 
 #include "mbed.h"
 #include <vector>
 
-#define BLUETOOTH_DEFAULT_POLLING_PERIOD 10ms
 /**
- * Bluetooth Module for the HM-10 that waits for bluetooth inputs ('commands'),
- * which can have code executed upon being received (polling is achieved via
- * BufferedSerial usage).
+ * @brief Event-based HM-10 (Bluetooth/UART emulation) module.
  */
 class Bluetooth {
 public:
-  /** A single byte bluetooth command. */
+  /**
+   * @brief Single byte bluetooth command
+   *
+   */
   struct Command {
-    /** Byte corresponding to command. It is reccomended that bits intending to
-     * contain parameters are zero'd out, though as long as the mask is correct,
-     * this will not be an issue.
-     */
+    /** Command opcode (operands should be zero'd out in cmd AND mask.) */
     uint8_t cmd;
-    /** Mask should cover all bits of the command that are NOT opcodes. This is
-     * used to parse commands that contain any parameters. */
+    /** Opcode mask (all bits not covered by the mask will not be matched
+     * against cmd.)*/
     uint8_t mask;
     /**
-     * Callback to execute when input & mask = command. Passes the un-masked
-     * command, and the serial interface used, so that the user may implement
-     * a response.
+     * Callback to execute on matching command input
      *
-     * All callbacks are executed in shared queue context, so while blocking
-     * calls are available, it is still reccomended to limit your execution
-     * time.
-     *
-     * @note Response via BufferedSerial requires all the same checks (is
-     * writable).
+     * @note This is executed in mbed shared queue context, so while it is okay
+     * to use blocking calls, you should avoid using lots of time to allow other
+     * events through.
      */
     Callback<void(uint8_t)> action;
-    /**
-     * Construct an instance of a Bluetooth Command
-     * @param cmd Unique byte corresponding to this command (use mask to define
-     * opcode bitfields)
-     * @param mask Masks the opcode segment of the command.
-     * @param action Callback to call when command is receieved
-     */
     Command(uint8_t cmd, uint8_t mask, Callback<void(uint8_t)> action);
   };
   /**
-   * Creates a Bluetooth object.
-   * @param serial BufferedSerial instance to use. For regular operation,
-   * avoid reading from this instance outside of Bluetooth, though it should
-   * be accessible in-case you want/need to redirect standard output to it.
-   * @param commands Initial commands to register immediately.
-   * @param startNow Pass true if you want to start polling for commands
-   * immediately.
-   * @param pollInterval Configure this if you are starting immediately AND
-   * want to change how often new commands are checked for. (If started later,
-   * this value means nothing).
+   * @brief Construct a new Bluetooth object
    *
-   * @note The BufferedSerial instance will be configured on initialization to
-   * be 'non-blocking' (does not wait for data).
+   * @param serial Serial interface corresponding to Bluetooth.
+   * @param commands Initial command set to use
+   * @param startNow Set to true to start waiting for incoming commands.
    */
-  explicit Bluetooth(BufferedSerial* serial,
-            std::vector<Command> commands = {},
-            bool startNow = false,
-            std::chrono::microseconds pollInterval = BLUETOOTH_DEFAULT_POLLING_PERIOD);
+  explicit Bluetooth(BufferedSerial *serial, std::vector<Command> commands = {},
+                     bool startNow = false);
+  /**
+   * @brief Register a new command to the bluetooth object.
+   * @note Bluetooth command should be fully initialized.
+   * @param cmd Bluetooth::Command to register
+   */
   void addCommand(Bluetooth::Command cmd);
   /**
-   * Removes a command.
-   * @note Calling this function is pretty expensive, it is not recommended
-   * that your implementation is constantly adding and removing commands.
-   * @param cmd Bluetooth command to remove
+   * @brief Deregister a bluetooth command
+   * @note Avoid excessive usage, commands have to be searched for.
+   * @param cmd Command to deregister
    */
-  void removeCommand(Bluetooth::Command* cmd);
+  void removeCommand(Bluetooth::Command *cmd);
   void removeCommand(uint8_t cmd);
-  /**
-   * Starts/resumes polling for bluetooth commands.
-   */
+  /** Start waiting for bluetooth commands */
   void start();
-  /** Stops polling for bluetooth commands, if not already done so */
+  /** Stop waiting for bluetooth commands */
   void stop();
+
 private:
-  /** Shared event queue to defer longer execution to. */
-  EventQueue* sQueue = mbed_event_queue();
-  BufferedSerial* s;
-  /** Collection of registered commands */
-  std::vector<Command> commands;
+  EventQueue *sQueue = mbed_event_queue();
+  BufferedSerial *s; /**< BLE UART Serial Interface*/
+  std::vector<Command> commands; /**< Vector of all registered commands*/
+  /**
+   * @brief Attaches to the BufferedSerial's `sigio` event.
+   * @note Executes in ISR context!
+   */
   void onSigio();
   /**
-   * Periodically pulls a byte from the buffer to see if new commands have been
-   * received. If a new command is received, it will make a deferred call to
-   * `commandParser` (in shared queue context).
+   * @brief Reads the incoming bluetooth commands and flushes
+   * the queue.
+   * @note This is called by `onSigio` by deferred call into the shared event queue.
    */
   void poll();
   /**
-   * Parses a command and executes the callback, if it is added to Bluetooth.
-   * @note If additional implementations call this function, avoid calling from
-   * ISR context. Default/Current implementation is to call this on the shared
-   * event thread. Reason being is that it's lifetime corresponds to N commands
-   * present in `commands`, and that actions may want to call blocking behaviour,
-   * which might panic in ISR context, or just take a while.
-   * @param cmd Command byte to look for (ignore operands/fill operands as 0's)
+   * @brief Parse a byte into a corresponding registered bluetooth command.
+   * 
+   * @param instruction Byte to parse
    */
-  void commandParser(uint8_t cmd);
+  void commandParser(uint8_t instruction);
 };
 
-#endif // SW_F401_HM10_HPP
+#endif // __BLUETOOTH_HPP
