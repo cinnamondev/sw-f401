@@ -45,3 +45,6 @@ docs/
 .vscode/*
 .theia/*
 .pio/*
+
+# bleConsole
+bleConsole/env/*
