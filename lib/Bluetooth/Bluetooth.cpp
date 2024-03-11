@@ -10,14 +10,15 @@ Bluetooth::Bluetooth(mbed::BufferedSerial *serial,
     s->write(aliveResponse, 9);
   }
   if (startNow) {
-    ticker.attach(callback(this, &Bluetooth::poll), pollInterval);
+    start();
   }
 }
 
 void Bluetooth::poll() {
   uint8_t cIn; // Store latest command
-  if (s->readable() && s->read(&cIn, 1) != EAGAIN) {
-    sQueue->event(callback(this, &Bluetooth::commandParser), cIn);
+  if (s->readable() && s->read(&cIn, 1) > 0) {
+    commandParser(cIn);
+    //sQueue->event(callback(this, &Bluetooth::commandParser), cIn);
   }
 }
 
@@ -30,7 +31,7 @@ void Bluetooth::removeCommand(Bluetooth::Command *cmd) {
 void Bluetooth::commandParser(uint8_t cmd) {
   for (const auto &c : commands) {
     if ((cmd & c.mask) == c.cmd) {
-      sQueue->event(c.action, cmd, s);
+      c.action(cmd);
       break;
     }
   }
@@ -41,12 +42,12 @@ void Bluetooth::removeCommand(uint8_t cmd) {
                  commands.end());
 }
 
-void Bluetooth::start(std::chrono::microseconds pollInterval) {
-  ticker.attach(callback(this, &Bluetooth::poll), pollInterval);
+void Bluetooth::start() {
+  s->sigio(callback(this, &Bluetooth::poll));
 }
 
-void Bluetooth::stop() { ticker.detach(); }
+void Bluetooth::stop() { s->sigio(nullptr); }
 
 Bluetooth::Command::Command(uint8_t cmd, uint8_t mask,
-                            Callback<void(uint8_t, BufferedSerial*)> action)
+                            Callback<void(uint8_t)> action)
     : cmd(cmd & mask), mask(mask), action(action) {}

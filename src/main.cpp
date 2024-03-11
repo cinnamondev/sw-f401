@@ -4,17 +4,24 @@
 
 #include "Bluetooth.hpp"
 
-BufferedSerial _bleSerial(PA_11,PA_12);
+BufferedSerial bleSerial(PA_11,PA_12);
+
+/*
 FileHandle* mbed::mbed_target_override_console(int fd) {
   return &_bleSerial;
 }
+ */
 
-
-DigitalOut out(D5);
+DigitalOut out(LED1);
+void toggleLED(uint8_t cmd) {
+  bool on = out.read();
+  out.write(!on);
+}
 
 int main(void) {
-  // setup code
+  Bluetooth bluetooth(&bleSerial, std::vector<Bluetooth::Command> {
+                                       Bluetooth::Command('A', 0xFF, callback(&toggleLED)),
+                                   }, true);
   while (true) {
-    // main loop
   }
 }

@@ -11,10 +11,9 @@
 #include "mbed.h"
 #include <vector>
 
-/** Default ticker period for polling for bluetooth commands */
-#define BLUETOOTH_DEFAULT_POLLING_PERIOD 100ms
+#define BLUETOOTH_DEFAULT_POLLING_PERIOD 10ms
 /**
- * Bluetooth Module for the HM-10 that polls for bluetooth inputs ('commands'),
+ * Bluetooth Module for the HM-10 that waits for bluetooth inputs ('commands'),
  * which can have code executed upon being received (polling is achieved via
  * BufferedSerial usage).
  */
@@ -42,7 +41,7 @@ public:
      * @note Response via BufferedSerial requires all the same checks (is
      * writable).
      */
-    Callback<void(uint8_t, BufferedSerial*)> action;
+    Callback<void(uint8_t)> action;
     /**
      * Construct an instance of a Bluetooth Command
      * @param cmd Unique byte corresponding to this command (use mask to define
@@ -50,7 +49,7 @@ public:
      * @param mask Masks the opcode segment of the command.
      * @param action Callback to call when command is receieved
      */
-    Command(uint8_t cmd, uint8_t mask, Callback<void(uint8_t, BufferedSerial*)> action);
+    Command(uint8_t cmd, uint8_t mask, Callback<void(uint8_t)> action);
   };
   /**
    * Creates a Bluetooth object.
@@ -82,15 +81,13 @@ public:
   void removeCommand(uint8_t cmd);
   /**
    * Starts/resumes polling for bluetooth commands.
-   * @param pollInterval How often to poll for bluetooth commands.
    */
-  void start(std::chrono::microseconds pollInterval = BLUETOOTH_DEFAULT_POLLING_PERIOD);
+  void start();
   /** Stops polling for bluetooth commands, if not already done so */
   void stop();
 private:
   /** Shared event queue to defer longer execution to. */
   EventQueue* sQueue = mbed_event_queue();
-  Ticker ticker;
   BufferedSerial* s;
   /** Collection of registered commands */
   std::vector<Command> commands;
@@ -112,7 +109,4 @@ private:
   void commandParser(uint8_t cmd);
 };
 
-#ifdef CONFIG_REDIRECT_STDIO_BLE
-
-#endif
 #endif // SW_F401_HM10_HPP

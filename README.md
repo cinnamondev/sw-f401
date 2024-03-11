@@ -7,19 +7,16 @@ a custom buggy design, which can drive autonomously.
 ## Building
 
 ### Development environment
-Using either:
-- Mbed Studio
-- mbed-tools (CLI)
-- Any IDE with PlatformIO support
-- platformio (CLI)
 
-### Submodule init
+This project structure is centred around using [PlatformIO](https://platformio.org). PlatformIO is availale
+as a command-line tool, and as an extension to most of your favourite editors/IDEs.
 
-Project dependencies are organized into git submodules.
+## Documentation
 
-Make sure they are correctly cloned:
-`git submodule init`
-`git submodule update`
+To build Doxygen documentation, you should ensure that the [doxygen-awesome-css](https://github.com/jothepro/doxygen-awesome-css)
+submodule is cloned. In the project root, execute:
+- `git submodule init`
+- `git submodule update`
 
 ### Building
 
@@ -27,6 +24,10 @@ Then build with your IDE, or:
 - `mbed-tools compile`
 - `pio run`
     - Use `pio run --target upload` to upload the firmware.
+
+## Wiring
+
+Refer to the [wiring diagram](https://github.com/embedded-systems-30/wiring-diagram).
 
 ## Thanks to:
 
