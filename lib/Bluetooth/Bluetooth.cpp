@@ -1,4 +1,10 @@
-
+/**
+ * @file Bluetooth.cpp
+ * @author cinnamondev
+ * @brief HM10 Bluetooth module driver for mbed-os
+ * @version 1.0
+ * 
+ */
 
 #include "Bluetooth.hpp"
 
@@ -16,10 +22,10 @@ void Bluetooth::onSigio() {
 }
 void Bluetooth::poll() {
   uint8_t cIn; 
-  if (s->read(&cIn, 1) > 0) { // store latest command & parse.
+  while (s->read(&cIn, 1) > 0) { // store latest command & parse.
     commandParser(cIn);
   }
-  s->sync();  // flush anything left in the buffer
+  //s->sync();  // flush anything left in the buffer
 }
 
 void Bluetooth::commandParser(uint8_t cmd) {
