@@ -1,0 +1,16 @@
+{
+    "name": "YAPID",
+    "version": "1.0.0",
+    "description": "Mbed DSP Wrapper PID",
+    "authors":
+    [
+      {
+        "name": "cinnamondev"
+      }
+    ],
+    "dependencies": {
+      "mbed-mbed-official/mbed-dsp": "~0.0.0"
+    },
+    "frameworks": "mbed",
+    "platforms": "*"
+  }

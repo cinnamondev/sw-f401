@@ -2,56 +2,63 @@
 #include <stm32f4xx.h>
 #include <stm32f4xx_ll_gpio.h>
 
+#include "logging.h"
 #include "Bluetooth.hpp"
-static BufferedSerial bleSerial(PA_11, PA_12, 9600);
+static void buggyStart(uint8_t cmd);
+static void buggyStop(uint8_t cmd);
+static void buggyTurnaround(uint8_t cmd);
+static void toggleLED(uint8_t cmd);
+static void pingPong(uint8_t cmd);
 
-bool use_ble = true;
-FileHandle *mbed::mbed_override_console(int fd)
-{
-  return &bleSerial;
-}
+
+static BufferedSerial bleSerial(PA_11, PA_12, 9600);
+FileHandle *mbed::mbed_override_console(int fd) { return &bleSerial; }
+
+static Bluetooth bluetooth(
+    &bleSerial,
+    std::vector<Bluetooth::Command>{
+        Bluetooth::Command('A', 0xFF, callback(&toggleLED)), //  LED Test
+        Bluetooth::Command('B', 0xFF, callback(&pingPong)),
+        Bluetooth::Command('S', 0xFF, callback(&buggyStart)),
+        Bluetooth::Command('Z', 0xFF, callback(&buggyStop)),
+        Bluetooth::Command('T', 0xFF, callback(&buggyTurnaround)),
+    },
+    true);
+
 
 DigitalOut out(LED1);
-void toggleLED(uint8_t cmd) {
+static void toggleLED(uint8_t cmd) {
   bool on = out.read();
   out.write(!on);
 }
 
-void pingPong(uint8_t cmd) {
-  printf("Hello from BLE!");
-  fflush(stdout);
-  bleSerial.sync();
+static void pingPong(uint8_t cmd) {
+  DEBUG("Hello from BLE!");
 }
 
 // example buggy control cmmands
 
-void buggyStart(uint8_t cmd) {
-  printf("buggy started");
-  fflush(stdout);
+static void buggyStart(uint8_t cmd) {
+  DEBUG("buggy started");
 }
 
-void buggyStop(uint8_t cmd) {
-  printf("buggy stopped");
-  fflush(stdout);
+static void buggyStop(uint8_t cmd) {
+  DEBUG("buggy stopped");
 }
 
-void buggyTurnaround(uint8_t cmd) {
-  printf("sequence added...");
-  fflush(stdout);
+static void buggyTurnaround(uint8_t cmd) {
+  DEBUG("sequence added...");
 }
+
+I2C lineSensor(SDA,SCL);
 
 int main(void) {
-  Bluetooth bluetooth(
-      &bleSerial,
-      std::vector<Bluetooth::Command>{
-          Bluetooth::Command('A', 0xFF, callback(&toggleLED)), //  LED Test
-          Bluetooth::Command('B', 0xFF, callback(&pingPong)), // module response test
-          Bluetooth::Command('S', 0xFF, callback(&buggyStart)),
-          Bluetooth::Command('Z', 0xFF, callback(&buggyStop)),
-          Bluetooth::Command('T', 0xFF, callback(&buggyTurnaround)),
-      },
-      true);
+  float linePosition;
+  char rx_buf[4];
   while (true) {
+    lineSensor.read(0x20, rx_buf, 4);
+    linePosition = *reinterpret_cast<float*>(rx_buf);
+    DEF_DEBUG("hello world");
     // spinny
   }
 }

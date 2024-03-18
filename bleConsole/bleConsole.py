@@ -25,4 +25,5 @@ async def main():
             while True:
                 user_input = await aioconsole.ainput("")
                 await client.write_gatt_char(c, str.encode(user_input))
+
 asyncio.run(main())

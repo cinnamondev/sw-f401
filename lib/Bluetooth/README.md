@@ -17,3 +17,13 @@ int main(void) {
   while (true);
 }
 ```
+
+
+Bluetooth flow
+
+1. incoming data
+
+2. onsigio is triggered due to sigio callback
+3. onsigio deferred call to poll
+4. poll matches input to command
+5. command is executed (in deferred context)

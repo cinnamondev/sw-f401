@@ -3,8 +3,7 @@
 #include "Bluetooth.hpp"
 
 Bluetooth::Bluetooth(mbed::BufferedSerial *serial,
-                     std::vector<Command> commands, bool startNow,
-                     std::chrono::microseconds pollInterval)
+                     std::vector<Command> commands, bool startNow)
     : s(serial), commands(std::move(commands)) {
   s->set_blocking(false);
   if (startNow) {
