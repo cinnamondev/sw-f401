@@ -1,5 +1,4 @@
-# BLE Console
-# Console for BLE characteristic of device! cinnamondev
+# Line sensor output loop
 
 import asyncio
 from bleak import *
@@ -19,9 +18,9 @@ async def main():
         if c is not None:
             # print data when sent by hm10
             await client.start_notify(c, console_in)
-            await client.write_gatt_char(c, str.encode("B")) # "ping" command (shows functionality)
-            while True: # const
-                user_input = await aioconsole.ainput("")
-                await client.write_gatt_char(c, str.encode(user_input))
+            client.write_gatt_char(c, str.encode("B")) # "ping" command (shows functionality)
+            while True:
+                await client.write_gatt_char(c, str.encode("L")) # get line sensor data
+                await asyncio.sleep(1)
 
 asyncio.run(main())

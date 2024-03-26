@@ -1,6 +1,8 @@
 #ifndef LINESENSOR_HPP
 #define LINESENSOR_HPP
 
-class LineSensor : 
+class LineSensor {
+
+};
 
 #endif // LINESENSOR_HPP

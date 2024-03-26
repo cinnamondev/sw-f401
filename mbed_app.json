@@ -1,0 +1,9 @@
+{
+    "target_overrides": {
+        "nucleo_f401re": {
+            "target.features_add": ["STORAGE"],
+            "target.components_add": ["FLASH", "FLASHIAP"],
+            "target.restrict_size": "0x40000"
+        }
+    }
+}
