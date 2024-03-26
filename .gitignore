@@ -39,5 +39,12 @@ BUILD/*
 .mbed
 mbed-os
 docs/
+
+# IDEs/PIO
 .idea/*
+.vscode/*
+.theia/*
 .pio/*
+
+# bleConsole
+bleConsole/env/*

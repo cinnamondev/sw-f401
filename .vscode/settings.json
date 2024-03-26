@@ -1,5 +1,8 @@
 {
     "files.associations": {
         "stm32f4xx_hal.h": "c"
-    }
+    },
+    "C_Cpp.doxygen.generatedStyle": "/**",
+    "doxygen_runner.configuration_file_override": "${workspaceFolder}\\Doxyfile",
+    "doxygen_runner.view_after_generate": false
 }

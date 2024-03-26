@@ -1,36 +1,39 @@
-# Embedded Systems Project 2023/24
+<!-- @mainpage -->
+# sw-f401
 
-## Dependencies
+<div style="text-align:center"><img src="./.attachments/esproj.png" /></div>
 
-- Mbed 6.17.1
-- CMSIS-DSP library
+Firmware for the Nucleo-F401RE (All functions exc. Line Processing)
 
-## Setup
+For line processing, see `sw-lp-g030`.
+
+The ESProject is a 2nd year group project to design a line-following buggy, requiring
+students to design around a few key components, with the final designs being tested against
+one-another in a final race.
+
+## Building
 
 ### Development environment
-Using either:
-- Mbed Studio
-- mbed-tools (CLI)
-- Any IDE with PlatformIO support
-- platformio (CLI)
 
-### Submodule init
+This project structure is centred around using [PlatformIO](https://platformio.org). PlatformIO is availale as a command-line tool, or as an extension to most of your favourite editors/IDEs.
 
-Project dependencies are organized into git submodules.
+### Dependencies
 
-Make sure they are correctly cloned:
-`git submodule init`
-`git submodule update`
+- mbed-dsp
+- mbed-os
 
-### Building
+Above will be downloaded automagically by PlatformIO on build.
 
-Then build with your IDE, or:
-- `mbed-tools compile`
-- `pio run`
-    - Use `pio run --target upload` to upload the firmware.
+## Wiring
 
-## Thanks to:
+Refer to the [wiring diagram](https://github.com/embedded-systems-30/wiring-diagram).
 
-- The contributors of the [C12832](https://os.mbed.com/teams/components/code/C12832/) library.
-This project uses a modified version available [here](https://github.com/cinnamondev/C12832/tree/mbedOS-6), which allows it to be used with the latest version of Mbed OS.
+## Line Processing
 
+Line processing work is delegated to the line sensor module. See [sw-lp-g030](https://github.com/embedded-systems-30/sw-lp-g030).
+
+## bleConsole script
+
+Use bleConsole for debug output and sending commands. Requires python 3.
+Install `bleak` and `aioconsole` to use, some properties may need to be changed.
+HM-10 module should always use the same characteristic UUID for UART service, the script uses the device name to identify it, which is likely different for you.
