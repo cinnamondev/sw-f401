@@ -28,9 +28,9 @@ Above will be downloaded automagically by PlatformIO on build.
 
 Refer to the [wiring diagram](https://github.com/embedded-systems-30/wiring-diagram).
 
-## Line Processing
+## Line Sensor
 
-Line processing work is delegated to the line sensor module. See [sw-lp-g030](https://github.com/embedded-systems-30/sw-lp-g030).
+See [sw-lp-g030](https://github.com/cinnamondev/sw-lp-g030).
 
 ## bleConsole script
 
