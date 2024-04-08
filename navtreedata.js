@@ -31,7 +31,7 @@ var NAVTREE =
         [ "Dependencies", "index.html#autotoc_md4", null ]
       ] ],
       [ "Wiring", "index.html#autotoc_md5", null ],
-      [ "Line Processing", "index.html#autotoc_md6", null ],
+      [ "Line Sensor", "index.html#autotoc_md6", null ],
       [ "bleConsole script", "index.html#autotoc_md7", null ]
     ] ],
     [ "steering control principle of operation", "md_src_readme.html", null ],
