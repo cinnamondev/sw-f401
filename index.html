@@ -89,9 +89,8 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_README"></a></p>
 <h1><a class="anchor" id="autotoc_md1"></a>
-sw-f401</h1>
-<div style="text-align:center"><img src="./.attachments/esproj.png" alt="" class="inline"/></div><p>Firmware for the Nucleo-F401RE (All functions exc. Line Processing)</p>
-<p>For line processing, see <code>sw-lp-g030</code>.</p>
+ESProject G30 2023/24: sw-f401</h1>
+<p>Firmware for the Nucleo-F401RE of the G30 ESProject buggy.</p>
 <p>The ESProject is a 2nd year group project to design a line-following buggy, requiring students to design around a few key components, with the final designs being tested against one-another in a final race.</p>
 <h2><a class="anchor" id="autotoc_md2"></a>
 Building</h2>
@@ -107,13 +106,17 @@ Dependencies</h3>
 <p>Above will be downloaded automagically by PlatformIO on build.</p>
 <h2><a class="anchor" id="autotoc_md5"></a>
 Wiring</h2>
-<p>Refer to the <a href="https://github.com/embedded-systems-30/wiring-diagram">wiring diagram</a>.</p>
+<p><img src="caddrawio.png" alt="" height="712px" class="inline" title="Wiring Diagram"/> Refer to the <a href="https://github.com/embedded-systems-30/wiring-diagram">wiring diagram</a> for the editable diagram.</p>
 <h2><a class="anchor" id="autotoc_md6"></a>
-Line Sensor</h2>
+Line Sensor Module</h2>
+<p>Line Sensor Module requires it's own firmware. Please refer to <a href="https://github.com/cinnamondev/sw-lp-g030">sw-lp-g030</a>. (Documentation available at <a href="https://cinnamondev.github.io/sw-lp-g030">docs: sw-lp-g030</a>).</p>
 <p>See <a href="https://github.com/cinnamondev/sw-lp-g030">sw-lp-g030</a>.</p>
 <h2><a class="anchor" id="autotoc_md7"></a>
 bleConsole script</h2>
-<p>Use bleConsole for debug output and sending commands. Requires python 3. Install <code>bleak</code> and <code>aioconsole</code> to use, some properties may need to be changed. HM-10 module should always use the same characteristic UUID for UART service, the script uses the device name to identify it, which is likely different for you. </p>
+<p>Use bleConsole for debug output and sending commands. Requires python 3. Install <code>bleak</code> and <code>aioconsole</code> to use, some properties may need to be changed. HM-10 module should always use the same characteristic UUID for UART service, the script uses the device name to identify it, which is likely different for you.</p>
+<h2><a class="anchor" id="autotoc_md8"></a>
+Code styling</h2>
+<p>Code style is enforced by Clang-Format (<a href="https://llvm.org/docs/CodingStandards.html#header-guard">LLVM Style</a>). All contributed code should follow this style. </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

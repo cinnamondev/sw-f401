@@ -25,14 +25,15 @@
 var NAVTREE =
 [
   [ "Nucleo Firmware", "index.html", [
-    [ "sw-f401", "index.html#autotoc_md1", [
+    [ "ESProject G30 2023/24: sw-f401", "index.html#autotoc_md1", [
       [ "Building", "index.html#autotoc_md2", [
         [ "Development environment", "index.html#autotoc_md3", null ],
         [ "Dependencies", "index.html#autotoc_md4", null ]
       ] ],
       [ "Wiring", "index.html#autotoc_md5", null ],
-      [ "Line Sensor", "index.html#autotoc_md6", null ],
-      [ "bleConsole script", "index.html#autotoc_md7", null ]
+      [ "Line Sensor Module", "index.html#autotoc_md6", null ],
+      [ "bleConsole script", "index.html#autotoc_md7", null ],
+      [ "Code styling", "index.html#autotoc_md8", null ]
     ] ],
     [ "steering control principle of operation", "md_src_readme.html", null ],
     [ "README", "md_lib_Bluetooth_README.html", null ],
