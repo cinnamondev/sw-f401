@@ -20,7 +20,7 @@ async def main():
             await client.start_notify(c, console_in)
             client.write_gatt_char(c, str.encode("B")) # "ping" command (shows functionality)
             while True:
-                await client.write_gatt_char(c, str.encode("L")) # get line sensor data
+                await client.write_gatt_char(c, str.encode("Q")) # get line sensor data
                 await asyncio.sleep(1)
 
 asyncio.run(main())
