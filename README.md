@@ -30,7 +30,7 @@ Refer to the [wiring diagram](https://github.com/embedded-systems-30/wiring-diag
 Line Sensor Module requires it's own firmware. Please refer to [sw-lp-g030](https://github.com/cinnamondev/sw-lp-g030).
 (Documentation available at [docs: sw-lp-g030](https://cinnamondev.github.io/sw-lp-g030)).
 
-Line processing work is delegated to the line sensor module. See [sw-lp-g030](https://github.com/embedded-systems-30/sw-lp-g030).
+See [sw-lp-g030](https://github.com/cinnamondev/sw-lp-g030).
 
 ## bleConsole script
 
