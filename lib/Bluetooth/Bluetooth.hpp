@@ -6,6 +6,9 @@
 
 /**
  * @brief Event-based HM-10 (Bluetooth/UART emulation) module.
+ * 
+ * See following code example for usage:
+ * @include bluetoothExample.cpp
  */
 class Bluetooth {
 public:
@@ -51,13 +54,11 @@ public:
    */
   void removeCommand(Bluetooth::Command *cmd);
   void removeCommand(uint8_t cmd);
-  /** Start waiting for bluetooth commands */
-  void start();
-  /** Stop waiting for bluetooth commands */
-  void stop();
+  void start(); /**< Start waiting for bluetooth commands */
+  void stop(); /**< Stop waiting for bluetooth commands */
 
 private:
-  EventQueue *sQueue = mbed_event_queue();
+  EventQueue *sQueue = mbed_event_queue(); /**< Ensures the mbed shared queue exists prior to use. */
   BufferedSerial *s; /**< BLE UART Serial Interface*/
   std::vector<Command> commands; /**< Vector of all registered commands*/
   /**

@@ -11,7 +11,7 @@
 Bluetooth::Bluetooth(mbed::BufferedSerial *serial,
                      std::vector<Command> commands, bool startNow)
     : s(serial), commands(std::move(commands)) {
-  s->set_blocking(false);
+  s->set_blocking(false); // all r/w to serial iface is non-blocking.
   if (startNow) {
     start();
   }
@@ -25,12 +25,11 @@ void Bluetooth::poll() {
   while (s->read(&cIn, 1) > 0) { // store latest command & parse.
     commandParser(cIn);
   }
-  //s->sync();  // flush anything left in the buffer
 }
 
 void Bluetooth::commandParser(uint8_t cmd) {
   for (const auto &c : commands) { // linear search for matching command
-    if ((cmd & c.mask) == c.cmd) { // only match operand
+    if ((cmd & c.mask) == c.cmd) { // clean input of parameters
       c.action(cmd);
       break;
     }
@@ -59,6 +58,7 @@ void Bluetooth::removeCommand(uint8_t cmd) {
                  commands.end());
 }
 
+// Command Struct Initializer
 Bluetooth::Command::Command(uint8_t cmd, uint8_t mask,
                             Callback<void(uint8_t)> action)
     : cmd(cmd & mask), mask(mask), action(action) {}
