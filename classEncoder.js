@@ -1,8 +1,8 @@
 var classEncoder =
 [
-    [ "Encoder", "classEncoder.html#a58f3bb6247ff2a3661ace59d9a334d4b", null ],
-    [ "getSpeed", "classEncoder.html#a16e7a7ead99a7c1965db311dc1c8e117", null ],
-    [ "getSteps", "classEncoder.html#a4c843c3f89ac2d924d1ebade5baf967e", null ],
+    [ "Encoder", "classEncoder.html#ad332e4dc6706c6895eef4d2f7272a9b4", null ],
+    [ "getSpeed", "classEncoder.html#a9893c437b7764af322ec73b58d2274f2", null ],
+    [ "getSteps", "classEncoder.html#ae24c5b63b0bb0ee274130cb4c25e2e2e", null ],
     [ "onDistance", "classEncoder.html#acdeb822b4a077352cd1fa9509a2804e3", null ],
     [ "update", "classEncoder.html#a9d7fcd5ad0cfde12666720a8b2ac0ae2", null ]
 ];
