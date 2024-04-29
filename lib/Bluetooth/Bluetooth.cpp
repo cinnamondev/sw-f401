@@ -8,9 +8,9 @@
 
 #include "Bluetooth.hpp"
 
-Bluetooth::Bluetooth(mbed::BufferedSerial *serial,
+Bluetooth::Bluetooth(mbed::BufferedSerial *serial, EventQueue* userQueue,
                      std::vector<Command> commands, bool startNow)
-    : s(serial), commands(std::move(commands)) {
+    : s(serial), commands(std::move(commands)), deferQueue(userQueue) {
   s->set_blocking(false); // all r/w to serial iface is non-blocking.
   if (startNow) {
     start();
@@ -18,7 +18,7 @@ Bluetooth::Bluetooth(mbed::BufferedSerial *serial,
 }
 
 void Bluetooth::onSigio() {
-  sQueue->call(this, &Bluetooth::poll); // Defer to shared queue context
+  deferQueue->call(this, &Bluetooth::poll); // Defer to shared queue context
 }
 void Bluetooth::poll() {
   uint8_t cIn; 

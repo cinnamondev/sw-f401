@@ -36,11 +36,13 @@ public:
    * @brief Construct a new Bluetooth object
    *
    * @param serial Serial interface corresponding to Bluetooth.
+   * @param userQueue Queue that runs in user context for processing to
+   * occur in.
    * @param commands Initial command set to use
    * @param startNow Set to true to start waiting for incoming commands.
    */
-  explicit Bluetooth(BufferedSerial *serial, std::vector<Command> commands = {},
-                     bool startNow = false);
+  explicit Bluetooth(BufferedSerial *serial, EventQueue *,
+                     std::vector<Command> commands = {}, bool startNow = false);
   /**
    * @brief Register a new command to the bluetooth object.
    * @note Bluetooth command should be fully initialized.
@@ -58,7 +60,7 @@ public:
   void stop(); /**< Stop waiting for bluetooth commands */
 
 private:
-  EventQueue *sQueue = mbed_event_queue(); /**< Ensures the mbed shared queue exists prior to use. */
+  EventQueue *deferQueue; /**< Queue to execute blocking actions in. */
   BufferedSerial *s; /**< BLE UART Serial Interface*/
   std::vector<Command> commands; /**< Vector of all registered commands*/
   /**
