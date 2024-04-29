@@ -98,13 +98,13 @@ $(document).ready(function(){initNavTree('Encoder_8hpp_source.html',''); initRes
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="classEncoder.html">Encoder</a>(TIM_TypeDef* timer);</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keywordtype">float</span> getSpeed()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> float(stepDelta)/float(timeDelta*1e6); }</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getSteps()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> stepAcc; }</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getSteps() { <span class="keywordflow">return</span> stepAcc; stepAcc = 0; }</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keywordtype">void</span> update();</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordtype">void</span> onDistance(<span class="keywordtype">int</span> distance, Callback&lt;<span class="keywordtype">void</span>()&gt; e, <span class="keywordtype">bool</span> repeat = <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">float</span> degreesToSteps(<span class="keywordtype">int</span> steps, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cpr);</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">float</span> distanceToSteps(<span class="keywordtype">float</span> distance, <span class="keywordtype">float</span> wheelDiameter, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cpr);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  TIM_HandleTypeDef hwTimer;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  TIM_HandleTypeDef* hwTimer;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">volatile</span> uint32_t stepAcc = 0;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keyword">volatile</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> stepDelta = 0;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">volatile</span> uint64_t timeDelta = 0;</div>
