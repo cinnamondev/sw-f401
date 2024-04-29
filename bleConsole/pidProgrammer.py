@@ -1,9 +1,12 @@
-# BLE Console
-# Console for BLE characteristic of device! cinnamondev
+# pidProgrammer
+# input syntax
+# key kp ki kd
+# cinnamondev
 
 import asyncio
 from bleak import *
 import aioconsole
+from ctypes import c_float
 
 device_name = "GROUP_30"
 device_characteristic = "0000ffe1-0000-1000-8000-00805f9b34fb"
@@ -22,6 +25,12 @@ async def main():
             await client.write_gatt_char(c, str.encode("B")) # "ping" command (shows functionality)
             while True: # const
                 user_input = await aioconsole.ainput("")
-                await client.write_gatt_char(c, str.encode(user_input))
+                user_input.split(" ")
+                key = bytes(user_input[0]) # process user input and represent as
+                kp = bytes(c_float(float(user_input[1])).value) # bytes for transfer
+                ki = bytes(c_float(float(user_input[2])).value)
+                kd = bytes(c_float(float(user_input[3])).value)
+                output = bytearray([str.encode("T"), key, kp, ki, kd])
+                await client.write_gatt_char(c, output)
 
 asyncio.run(main())
