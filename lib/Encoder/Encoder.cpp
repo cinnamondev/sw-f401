@@ -4,7 +4,7 @@
 #include "stm32f4xx_hal_tim.h"
 #include "stm32f4xx_hal_gpio.h"
 
-Encoder::Encoder(TIM_TypeDef* timer, bool startNow) {
+Encoder::Encoder(TIM_TypeDef* timer) {
   us_ticker_init(); // mbed hal api used for precision timekeeping
 
   TIM_MasterConfigTypeDef sMasterConfig = {0};
@@ -65,4 +65,17 @@ void Encoder::update() {
       cbDistance = nullptr;
     }
   }
+}
+void Encoder::onDistance(int distance, Callback<void()> e, bool repeat) {
+  pulse_threshold = distance;
+  cbDistance = e;
+  event_repeatable = repeat;
+}
+
+// TODO
+
+float Encoder::degreesToSteps(int steps, unsigned int cpr) { return 0; }
+float Encoder::distanceToSteps(float distance, float wheelDiameter,
+                               unsigned int cpr) {
+  return 0;
 }
