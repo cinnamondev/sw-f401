@@ -105,9 +105,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2cc8700626fe04448a623814b2729d1f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetooth.html#a2cc8700626fe04448a623814b2729d1f">Bluetooth</a> (BufferedSerial *serial, std::vector&lt; <a class="el" href="structBluetooth_1_1Command.html">Command</a> &gt; commands={}, bool startNow=false)</td></tr>
-<tr class="memdesc:a2cc8700626fe04448a623814b2729d1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classBluetooth.html" title="Event-based HM-10 (Bluetooth/UART emulation) module.">Bluetooth</a> object.  <a href="classBluetooth.html#a2cc8700626fe04448a623814b2729d1f">More...</a><br /></td></tr>
-<tr class="separator:a2cc8700626fe04448a623814b2729d1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e0ee5695c58f4e69d00027a5778944e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetooth.html#a8e0ee5695c58f4e69d00027a5778944e">Bluetooth</a> (BufferedSerial *serial, EventQueue *, std::vector&lt; <a class="el" href="structBluetooth_1_1Command.html">Command</a> &gt; commands={}, bool startNow=false)</td></tr>
+<tr class="memdesc:a8e0ee5695c58f4e69d00027a5778944e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classBluetooth.html" title="Event-based HM-10 (Bluetooth/UART emulation) module.">Bluetooth</a> object.  <a href="classBluetooth.html#a8e0ee5695c58f4e69d00027a5778944e">More...</a><br /></td></tr>
+<tr class="separator:a8e0ee5695c58f4e69d00027a5778944e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdebda1061377bc4cadadccd68899d6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetooth.html#afdebda1061377bc4cadadccd68899d6d">addCommand</a> (<a class="el" href="structBluetooth_1_1Command.html">Bluetooth::Command</a> cmd)</td></tr>
 <tr class="memdesc:afdebda1061377bc4cadadccd68899d6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a new command to the bluetooth object.  <a href="classBluetooth.html#afdebda1061377bc4cadadccd68899d6d">More...</a><br /></td></tr>
 <tr class="separator:afdebda1061377bc4cadadccd68899d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,8 +163,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>removeCommand</b> (ui
 <div class="ttc" id="aclassBluetooth_html_ae936f177a424dd87dba7c506ebdbdd6a"><div class="ttname"><a href="classBluetooth.html#ae936f177a424dd87dba7c506ebdbdd6a">Bluetooth::start</a></div><div class="ttdeci">void start()</div><div class="ttdef"><b>Definition:</b> Bluetooth.cpp:39</div></div>
 <div class="ttc" id="astructBluetooth_1_1Command_html"><div class="ttname"><a href="structBluetooth_1_1Command.html">Bluetooth::Command</a></div><div class="ttdoc">Single byte bluetooth command.</div><div class="ttdef"><b>Definition:</b> Bluetooth.hpp:19</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a2cc8700626fe04448a623814b2729d1f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2cc8700626fe04448a623814b2729d1f">&#9670;&nbsp;</a></span>Bluetooth()</h2>
+<a id="a8e0ee5695c58f4e69d00027a5778944e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e0ee5695c58f4e69d00027a5778944e">&#9670;&nbsp;</a></span>Bluetooth()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,6 +177,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>removeCommand</b> (ui
           <td>(</td>
           <td class="paramtype">BufferedSerial *&#160;</td>
           <td class="paramname"><em>serial</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">EventQueue *&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -207,6 +213,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>removeCommand</b> (ui
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">serial</td><td>Serial interface corresponding to <a class="el" href="classBluetooth.html" title="Event-based HM-10 (Bluetooth/UART emulation) module.">Bluetooth</a>. </td></tr>
+    <tr><td class="paramname">userQueue</td><td>Queue that runs in user context for processing to occur in. </td></tr>
     <tr><td class="paramname">commands</td><td>Initial command set to use </td></tr>
     <tr><td class="paramname">startNow</td><td>Set to true to start waiting for incoming commands. </td></tr>
   </table>

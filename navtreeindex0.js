@@ -12,7 +12,7 @@ var NAVTREEINDEX0 =
 "bluetooth_8cpp-example.html":[5,0],
 "classBluetooth.html":[3,0,0],
 "classBluetooth.html#a21df880e400f4f7ba8eab8dde9249cbe":[3,0,0,3],
-"classBluetooth.html#a2cc8700626fe04448a623814b2729d1f":[3,0,0,1],
+"classBluetooth.html#a8e0ee5695c58f4e69d00027a5778944e":[3,0,0,1],
 "classBluetooth.html#aa05a6f1c1b2fda0e7085c754eeb7b406":[3,0,0,4],
 "classBluetooth.html#aa934756cfd2a749edac258ec3bb5f91b":[3,0,0,6],
 "classBluetooth.html#ae936f177a424dd87dba7c506ebdbdd6a":[3,0,0,5],
