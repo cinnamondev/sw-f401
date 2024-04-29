@@ -91,30 +91,32 @@ $(document).ready(function(){initNavTree('Encoder_8hpp_source.html',''); initRes
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SW_F401_ENCODER_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;mbed.h&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;stm32f4xx.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;stm32f4xx_ll_tim.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classEncoder.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEncoder.html">Encoder</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <a class="code" href="classEncoder.html">Encoder</a>(TIM_TypeDef* timer, <span class="keywordtype">bool</span> startNow = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <span class="keywordtype">int</span> getSpeed() { <span class="keywordflow">return</span> float(stepDelta)/float(timeDelta*1e6); }</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getSteps() { <span class="keywordflow">return</span> stepAcc; }</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keywordtype">void</span> update();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keywordtype">void</span> onDistance(<span class="keywordtype">int</span> distance, Callback&lt;<span class="keywordtype">void</span>()&gt; e, <span class="keywordtype">bool</span> repeat = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">float</span> degreesToSteps(<span class="keywordtype">int</span> steps, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cpr);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">float</span> distanceToSteps(<span class="keywordtype">float</span> distance, <span class="keywordtype">float</span> wheelDiameter, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cpr);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  TIM_HandleTypeDef hwTimer;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keyword">volatile</span> uint32_t stepAcc = 0;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  <span class="keyword">volatile</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> stepDelta = 0;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keyword">volatile</span> uint64_t timeDelta = 0;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> pulse_threshold = 0;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordtype">bool</span> event_repeatable = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  Callback&lt;void()&gt; cbDistance;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SW_F401_ENCODER_HPP</span></div>
-<div class="ttc" id="aclassEncoder_html"><div class="ttname"><a href="classEncoder.html">Encoder</a></div><div class="ttdef"><b>Definition:</b> Encoder.hpp:7</div></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;stm32f4xx_hal_tim.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;stm32f4xx_hal_gpio.h&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;stm32f4xx_ll_tim.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classEncoder.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEncoder.html">Encoder</a> {</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <a class="code" href="classEncoder.html">Encoder</a>(TIM_TypeDef* timer, <span class="keywordtype">bool</span> startNow = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;  <span class="keywordtype">int</span> getSpeed() { <span class="keywordflow">return</span> float(stepDelta)/float(timeDelta*1e6); }</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getSteps() { <span class="keywordflow">return</span> stepAcc; }</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordtype">void</span> update();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keywordtype">void</span> onDistance(<span class="keywordtype">int</span> distance, Callback&lt;<span class="keywordtype">void</span>()&gt; e, <span class="keywordtype">bool</span> repeat = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">float</span> degreesToSteps(<span class="keywordtype">int</span> steps, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cpr);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">float</span> distanceToSteps(<span class="keywordtype">float</span> distance, <span class="keywordtype">float</span> wheelDiameter, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> cpr);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;  TIM_HandleTypeDef hwTimer;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keyword">volatile</span> uint32_t stepAcc = 0;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keyword">volatile</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> stepDelta = 0;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keyword">volatile</span> uint64_t timeDelta = 0;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> pulse_threshold = 0;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">bool</span> event_repeatable = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  Callback&lt;void()&gt; cbDistance;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SW_F401_ENCODER_HPP</span></div>
+<div class="ttc" id="aclassEncoder_html"><div class="ttname"><a href="classEncoder.html">Encoder</a></div><div class="ttdef"><b>Definition:</b> Encoder.hpp:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

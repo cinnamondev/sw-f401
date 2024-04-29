@@ -124,7 +124,45 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>removeCommand</b> (ui
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Event-based HM-10 (Bluetooth/UART emulation) module. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<p>See following code example for usage: </p><div class="fragment"><div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &quot;Bluetooth.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;mbed.h&quot;</span></div>
+<div class="line"> </div>
+<div class="line">DigitalOut led(LED1, 0);</div>
+<div class="line">BufferedSerial bleSerial(PA_11, PA_12, 9600); <span class="comment">// Serial Interface to HM10</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Including this override retargets calls to printf to go through the BLE</span></div>
+<div class="line"><span class="comment">// interface.</span></div>
+<div class="line">FileHandle *mbed::mbed_override_console(<span class="keywordtype">int</span> fd) { <span class="keywordflow">return</span> &amp;bleSerial; }</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> toggleLED(uint8_t cmd) { <span class="comment">// Toggle an LED on/off.</span></div>
+<div class="line">  <span class="keywordtype">bool</span> on = led.read();       <span class="comment">// Executes in shared thread context</span></div>
+<div class="line">  led.write(!on);  </div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> ledCmd(uint8_t cmd) { <span class="comment">// State of final bit determines</span></div>
+<div class="line">  led = cmd &amp; 0x01;        <span class="comment">// whether to turn LED on or off.</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">void</span>) {</div>
+<div class="line">  <a class="code" href="classBluetooth.html">Bluetooth</a> bluetooth(</div>
+<div class="line">      &amp;bleSerial,</div>
+<div class="line">      <span class="comment">// Provide an initial set of bluetooth commands </span></div>
+<div class="line">      std::vector&lt;Bluetooth::Command&gt;{</div>
+<div class="line">          <a class="code" href="structBluetooth_1_1Command.html">Bluetooth::Command</a>(<span class="charliteral">&#39;A&#39;</span>, 0xFF, callback(&amp;toggleLED)), <span class="comment">// Toggle LED</span></div>
+<div class="line">          <a class="code" href="structBluetooth_1_1Command.html">Bluetooth::Command</a>(0xEE, 0xFE, callback(&amp;ledCmd)),   <span class="comment">// Set LED on/off</span></div>
+<div class="line">      },</div>
+<div class="line">      <span class="keyword">false</span>); <span class="comment">// Does not accept any new commands. Set true to start</span></div>
+<div class="line">              <span class="comment">// immediately (optional parameter)</span></div>
+<div class="line"> </div>
+<div class="line">  bluetooth.<a class="code" href="classBluetooth.html#ae936f177a424dd87dba7c506ebdbdd6a">start</a>(); <span class="comment">// Starts accepting new commands NOW.</span></div>
+<div class="line">  <span class="keywordflow">while</span> (<span class="keyword">true</span>)</div>
+<div class="line">    ; <span class="comment">// Spin forever...</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aclassBluetooth_html"><div class="ttname"><a href="classBluetooth.html">Bluetooth</a></div><div class="ttdoc">Event-based HM-10 (Bluetooth/UART emulation) module.</div><div class="ttdef"><b>Definition:</b> Bluetooth.hpp:13</div></div>
+<div class="ttc" id="aclassBluetooth_html_ae936f177a424dd87dba7c506ebdbdd6a"><div class="ttname"><a href="classBluetooth.html#ae936f177a424dd87dba7c506ebdbdd6a">Bluetooth::start</a></div><div class="ttdeci">void start()</div><div class="ttdef"><b>Definition:</b> Bluetooth.cpp:39</div></div>
+<div class="ttc" id="astructBluetooth_1_1Command_html"><div class="ttname"><a href="structBluetooth_1_1Command.html">Bluetooth::Command</a></div><div class="ttdoc">Single byte bluetooth command.</div><div class="ttdef"><b>Definition:</b> Bluetooth.hpp:19</div></div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2cc8700626fe04448a623814b2729d1f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2cc8700626fe04448a623814b2729d1f">&#9670;&nbsp;</a></span>Bluetooth()</h2>
 

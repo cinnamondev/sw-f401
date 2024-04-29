@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['start_52',['start',['../classBluetooth.html#ae936f177a424dd87dba7c506ebdbdd6a',1,'Bluetooth']]],
-  ['stop_53',['stop',['../classBluetooth.html#aa934756cfd2a749edac258ec3bb5f91b',1,'Bluetooth']]]
+  ['removecommand_61',['removeCommand',['../classBluetooth.html#a21df880e400f4f7ba8eab8dde9249cbe',1,'Bluetooth']]]
 ];
