@@ -4,29 +4,29 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+/**
+ * @file ll_init.c
+ * @brief STM32
+ */
+
+/* Includes ------------------------------------------------------------------*/
+#include "ll_init.h"
+#include "main.h"
+#include "stm32f4xx.h"
+#include "stm32f4xx_hal_tim.h"
 
 /**
   * @brief TIM3 Initialization Function
   * @param None
-  * @retval NonE
+  * @retval None
  */
 void MX_TIM3_Init(void);
-
-/**
-  * @brief TIM4 Initialization Function
-  * @param None
-  * @retval None
- */
 void MX_TIM4_Init(void);
-
-/**
-  * @brief USART2 Initialization Function
-  * @param None
-  * @retval None
- */
 void MX_USART2_UART_Init(void);
-
-
+void HAL_TIM_Encoder_MspInit(TIM_HandleTypeDef* htim_encoder);
+void HAL_TIM_Encoder_MspDeInit(TIM_HandleTypeDef* htim_encoder);
+void HAL_UART_MspInit(UART_HandleTypeDef* huart);
+void HAL_UART_MspDeInit(UART_HandleTypeDef* huart);
 #ifdef __cplusplus
 }
 #endif

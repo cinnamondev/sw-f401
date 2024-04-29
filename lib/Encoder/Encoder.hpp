@@ -2,6 +2,8 @@
 #define SW_F401_ENCODER_HPP
 #include "mbed.h"
 #include "stm32f4xx.h"
+#include "stm32f4xx_hal_tim.h"
+#include "stm32f4xx_hal_gpio.h"
 #include "stm32f4xx_ll_tim.h"
 
 class Encoder {

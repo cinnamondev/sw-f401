@@ -1,5 +1,8 @@
 #include "Encoder.hpp"
-#include "../logging.h"
+
+#include "stm32f4xx.h"
+#include "stm32f4xx_hal_tim.h"
+#include "stm32f4xx_hal_gpio.h"
 
 Encoder::Encoder(TIM_TypeDef* timer, bool startNow) {
   us_ticker_init(); // mbed hal api used for precision timekeeping
@@ -25,14 +28,15 @@ Encoder::Encoder(TIM_TypeDef* timer, bool startNow) {
   encoderCfg.IC1Prescaler = TIM_ICPSC_DIV1;
   encoderCfg.IC1Filter = 0;
 
-  encoderCfg.IC2Polarity = TIM_ICPOLARITY_RISING;
+  encoderCfg.IC2Polarity = TIM_ICPOLARITY_RISING; 
   encoderCfg.IC1Prescaler = TIM_ICPSC_DIV1;
   encoderCfg.IC2Selection = TIM_ICSELECTION_INDIRECTTI;
   encoderCfg.IC2Prescaler = TIM_ICPSC_DIV1;
   encoderCfg.IC2Filter = 0;
 
   if (HAL_TIM_Encoder_Init(&hwTimer, &encoderCfg) != HAL_OK) {
-    DEBUG("Timer is not valid");
+    printf("Timer is not valid");
+    fflush(stdout);
   }
 
   HAL_TIM_Encoder_Start(&hwTimer, TIM_CHANNEL_ALL);
