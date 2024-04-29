@@ -9,13 +9,13 @@ class Encoder {
 public:
   explicit Encoder(TIM_TypeDef* timer);
   float getSpeed() const { return float(stepDelta)/float(timeDelta*1e6); }
-  unsigned int getSteps() const { return stepAcc; }
+  unsigned int getSteps() { return stepAcc; stepAcc = 0; }
   void update();
   void onDistance(int distance, Callback<void()> e, bool repeat = false);
   static float degreesToSteps(int steps, unsigned int cpr);
   static float distanceToSteps(float distance, float wheelDiameter, unsigned int cpr);
 private:
-  TIM_HandleTypeDef hwTimer;
+  TIM_HandleTypeDef* hwTimer;
   volatile uint32_t stepAcc = 0;
   volatile unsigned int stepDelta = 0;
   volatile uint64_t timeDelta = 0;
