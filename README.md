@@ -1,6 +1,8 @@
 <!-- @mainpage -->
 # ESProject G30 2023/24: sw-f401
 
+\image{inline} html final.jpg "Buggy Final Picture" height=712px
+
 Firmware for the Nucleo-F401RE of the G30 ESProject buggy.
 
 The ESProject is a 2nd year group project to design a line-following buggy, requiring
