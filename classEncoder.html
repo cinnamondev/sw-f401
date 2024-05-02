@@ -85,6 +85,8 @@ $(document).ready(function(){initNavTree('classEncoder.html',''); initResizable(
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classEncoder-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Encoder Class Reference</div>  </div>
@@ -112,6 +114,29 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoder.html#a1da39fbf1d85bd36ab7aaad1a34ddc80">stop</a> ()</td></tr>
 <tr class="memdesc:a1da39fbf1d85bd36ab7aaad1a34ddc80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop the encoder ticker. <br /></td></tr>
 <tr class="separator:a1da39fbf1d85bd36ab7aaad1a34ddc80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a9d7fcd5ad0cfde12666720a8b2ac0ae2"><td class="memItemLeft" align="right" valign="top"><a id="a9d7fcd5ad0cfde12666720a8b2ac0ae2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoder.html#a9d7fcd5ad0cfde12666720a8b2ac0ae2">update</a> ()</td></tr>
+<tr class="memdesc:a9d7fcd5ad0cfde12666720a8b2ac0ae2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check for a change in steps counted from the timer. Call regularly (perhaps via a ticker or background event) for a regular speed. <br /></td></tr>
+<tr class="separator:a9d7fcd5ad0cfde12666720a8b2ac0ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a12a28de03421d48ee5d02e2ca68ec5a2"><td class="memItemLeft" align="right" valign="top">Ticker&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoder.html#a12a28de03421d48ee5d02e2ca68ec5a2">ticker</a></td></tr>
+<tr class="separator:a12a28de03421d48ee5d02e2ca68ec5a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbf7055d6a6795a6a5a05d5280e2d118"><td class="memItemLeft" align="right" valign="top">std::chrono::microseconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoder.html#afbf7055d6a6795a6a5a05d5280e2d118">tickRate</a></td></tr>
+<tr class="separator:afbf7055d6a6795a6a5a05d5280e2d118"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46ca159361a59ab34d4bba69242ba5ef"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoder.html#a46ca159361a59ab34d4bba69242ba5ef">t1</a> = 0</td></tr>
+<tr class="separator:a46ca159361a59ab34d4bba69242ba5ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a582f5d2f11f927e206f776c7445ce37f"><td class="memItemLeft" align="right" valign="top">TIM_HandleTypeDef *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoder.html#a582f5d2f11f927e206f776c7445ce37f">hwTimer</a></td></tr>
+<tr class="separator:a582f5d2f11f927e206f776c7445ce37f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58cdedf94e6aeaacfbf12acee7f51f9b"><td class="memItemLeft" align="right" valign="top">volatile int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoder.html#a58cdedf94e6aeaacfbf12acee7f51f9b">steps</a> = 0</td></tr>
+<tr class="separator:a58cdedf94e6aeaacfbf12acee7f51f9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a175c0eea2394faed17c9accb21175952"><td class="memItemLeft" align="right" valign="top"><a id="a175c0eea2394faed17c9accb21175952"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>c1</b> = 0</td></tr>
+<tr class="separator:a175c0eea2394faed17c9accb21175952"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>STM32F4 HAL TIM <a class="el" href="classEncoder.html" title="STM32F4 HAL TIM Encoder Wrapper intended for MBED OS.">Encoder</a> Wrapper intended for MBED OS. </p>
@@ -193,6 +218,122 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 <p>Returns the number of steps since the previous 'tick'. </p>
 <dl class="section return"><dt>Returns</dt><dd>unsigned int Number of steps since last tick. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a582f5d2f11f927e206f776c7445ce37f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a582f5d2f11f927e206f776c7445ce37f">&#9670;&nbsp;</a></span>hwTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TIM_HandleTypeDef* Encoder::hwTimer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>STM32 HAL Timer Peripheral </p>
+
+</div>
+</div>
+<a id="a58cdedf94e6aeaacfbf12acee7f51f9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58cdedf94e6aeaacfbf12acee7f51f9b">&#9670;&nbsp;</a></span>steps</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile int Encoder::steps = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Number of steps since last tick </p>
+
+</div>
+</div>
+<a id="a46ca159361a59ab34d4bba69242ba5ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46ca159361a59ab34d4bba69242ba5ef">&#9670;&nbsp;</a></span>t1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Encoder::t1 = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Previous time sample (mbed) </p>
+
+</div>
+</div>
+<a id="a12a28de03421d48ee5d02e2ca68ec5a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12a28de03421d48ee5d02e2ca68ec5a2">&#9670;&nbsp;</a></span>ticker</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Ticker Encoder::ticker</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Mbed ticker to update encoder </p>
+
+</div>
+</div>
+<a id="afbf7055d6a6795a6a5a05d5280e2d118"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbf7055d6a6795a6a5a05d5280e2d118">&#9670;&nbsp;</a></span>tickRate</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::chrono::microseconds Encoder::tickRate</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Rate to update encoders at </p>
 
 </div>
 </div>

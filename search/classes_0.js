@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bluetooth_20',['Bluetooth',['../classBluetooth.html',1,'']]]
+  ['bluetooth_32',['Bluetooth',['../classBluetooth.html',1,'']]]
 ];

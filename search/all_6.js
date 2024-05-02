@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['oncompute_12',['onCompute',['../classPID.html#a7dd54ea71e1f737d34a061ecf6960d68',1,'PID']]]
+  ['hwtimer_12',['hwTimer',['../classEncoder.html#a582f5d2f11f927e206f776c7445ce37f',1,'Encoder']]]
 ];

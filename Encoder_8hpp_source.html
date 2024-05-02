@@ -112,25 +112,31 @@ $(document).ready(function(){initNavTree('Encoder_8hpp_source.html',''); initRes
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keywordtype">void</span> update();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classEncoder.html#a9d7fcd5ad0cfde12666720a8b2ac0ae2">update</a>();</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#ifndef LIB_ENCODER_NOMBED</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  Ticker ticker; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  std::chrono::microseconds tickRate; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  uint32_t t1 = 0; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classEncoder.html#a12a28de03421d48ee5d02e2ca68ec5a2">   76</a></span>&#160;  Ticker <a class="code" href="classEncoder.html#a12a28de03421d48ee5d02e2ca68ec5a2">ticker</a>; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classEncoder.html#afbf7055d6a6795a6a5a05d5280e2d118">   77</a></span>&#160;  std::chrono::microseconds <a class="code" href="classEncoder.html#afbf7055d6a6795a6a5a05d5280e2d118">tickRate</a>; </div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classEncoder.html#a46ca159361a59ab34d4bba69242ba5ef">   78</a></span>&#160;  uint32_t <a class="code" href="classEncoder.html#a46ca159361a59ab34d4bba69242ba5ef">t1</a> = 0; </div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#else</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  TIM_HandleTypeDef *hwTimer; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keyword">volatile</span> <span class="keywordtype">int</span> steps = 0; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classEncoder.html#a582f5d2f11f927e206f776c7445ce37f">   82</a></span>&#160;  TIM_HandleTypeDef *<a class="code" href="classEncoder.html#a582f5d2f11f927e206f776c7445ce37f">hwTimer</a>; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classEncoder.html#a58cdedf94e6aeaacfbf12acee7f51f9b">   83</a></span>&#160;  <span class="keyword">volatile</span> <span class="keywordtype">int</span> <a class="code" href="classEncoder.html#a58cdedf94e6aeaacfbf12acee7f51f9b">steps</a> = 0; </div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  uint32_t c1 = 0;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// SW_F401_ENCODER_HPP</span></div>
 <div class="ttc" id="aclassEncoder_html"><div class="ttname"><a href="classEncoder.html">Encoder</a></div><div class="ttdoc">STM32F4 HAL TIM Encoder Wrapper intended for MBED OS.</div><div class="ttdef"><b>Definition:</b> Encoder.hpp:39</div></div>
+<div class="ttc" id="aclassEncoder_html_a12a28de03421d48ee5d02e2ca68ec5a2"><div class="ttname"><a href="classEncoder.html#a12a28de03421d48ee5d02e2ca68ec5a2">Encoder::ticker</a></div><div class="ttdeci">Ticker ticker</div><div class="ttdef"><b>Definition:</b> Encoder.hpp:76</div></div>
 <div class="ttc" id="aclassEncoder_html_a1da39fbf1d85bd36ab7aaad1a34ddc80"><div class="ttname"><a href="classEncoder.html#a1da39fbf1d85bd36ab7aaad1a34ddc80">Encoder::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdoc">Stop the encoder ticker.</div><div class="ttdef"><b>Definition:</b> Encoder.cpp:34</div></div>
+<div class="ttc" id="aclassEncoder_html_a46ca159361a59ab34d4bba69242ba5ef"><div class="ttname"><a href="classEncoder.html#a46ca159361a59ab34d4bba69242ba5ef">Encoder::t1</a></div><div class="ttdeci">uint32_t t1</div><div class="ttdef"><b>Definition:</b> Encoder.hpp:78</div></div>
+<div class="ttc" id="aclassEncoder_html_a582f5d2f11f927e206f776c7445ce37f"><div class="ttname"><a href="classEncoder.html#a582f5d2f11f927e206f776c7445ce37f">Encoder::hwTimer</a></div><div class="ttdeci">TIM_HandleTypeDef * hwTimer</div><div class="ttdef"><b>Definition:</b> Encoder.hpp:82</div></div>
+<div class="ttc" id="aclassEncoder_html_a58cdedf94e6aeaacfbf12acee7f51f9b"><div class="ttname"><a href="classEncoder.html#a58cdedf94e6aeaacfbf12acee7f51f9b">Encoder::steps</a></div><div class="ttdeci">volatile int steps</div><div class="ttdef"><b>Definition:</b> Encoder.hpp:83</div></div>
+<div class="ttc" id="aclassEncoder_html_a9d7fcd5ad0cfde12666720a8b2ac0ae2"><div class="ttname"><a href="classEncoder.html#a9d7fcd5ad0cfde12666720a8b2ac0ae2">Encoder::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Check for a change in steps counted from the timer. Call regularly (perhaps via a ticker or backgroun...</div><div class="ttdef"><b>Definition:</b> Encoder.cpp:15</div></div>
 <div class="ttc" id="aclassEncoder_html_acff6a808ec22905c247f582bded4a9d5"><div class="ttname"><a href="classEncoder.html#acff6a808ec22905c247f582bded4a9d5">Encoder::getSteps</a></div><div class="ttdeci">int getSteps()</div><div class="ttdoc">Returns the number of steps since the previous 'tick'.</div><div class="ttdef"><b>Definition:</b> Encoder.cpp:39</div></div>
 <div class="ttc" id="aclassEncoder_html_ad9a4d22fb29fbca6df88720348f0a851"><div class="ttname"><a href="classEncoder.html#ad9a4d22fb29fbca6df88720348f0a851">Encoder::start</a></div><div class="ttdeci">void start()</div><div class="ttdoc">Start the encoder ticker at the previously defined sample rate.</div><div class="ttdef"><b>Definition:</b> Encoder.cpp:28</div></div>
 <div class="ttc" id="aclassEncoder_html_ae989dc653292e3fb2479dc7daf6a08ba"><div class="ttname"><a href="classEncoder.html#ae989dc653292e3fb2479dc7daf6a08ba">Encoder::Encoder</a></div><div class="ttdeci">Encoder(TIM_HandleTypeDef *timer, std::chrono::microseconds sampleRate)</div><div class="ttdoc">Construct a new Encoder object.</div><div class="ttdef"><b>Definition:</b> Encoder.cpp:6</div></div>
+<div class="ttc" id="aclassEncoder_html_afbf7055d6a6795a6a5a05d5280e2d118"><div class="ttname"><a href="classEncoder.html#afbf7055d6a6795a6a5a05d5280e2d118">Encoder::tickRate</a></div><div class="ttdeci">std::chrono::microseconds tickRate</div><div class="ttdef"><b>Definition:</b> Encoder.hpp:77</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

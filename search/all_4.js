@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getsteps_8',['getSteps',['../classEncoder.html#acff6a808ec22905c247f582bded4a9d5',1,'Encoder']]]
+  ['encoder_10',['Encoder',['../classEncoder.html',1,'Encoder'],['../classEncoder.html#ae989dc653292e3fb2479dc7daf6a08ba',1,'Encoder::Encoder()']]]
 ];

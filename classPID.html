@@ -87,6 +87,8 @@ $(document).ready(function(){initNavTree('classPID.html',''); initResizable(); }
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classPID-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">PID Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
@@ -151,6 +153,51 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a7dd54ea71e1f737d34a061ecf6960d68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae375e5add824feaf60a5118d0e61cc27"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPID.html#ae375e5add824feaf60a5118d0e61cc27">preCompute</a> (void)=0</td></tr>
 <tr class="separator:ae375e5add824feaf60a5118d0e61cc27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a9900dff400b1796cb0d281136524f73f"><td class="memItemLeft" align="right" valign="top"><a id="a9900dff400b1796cb0d281136524f73f"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>compute</b> (void)</td></tr>
+<tr class="separator:a9900dff400b1796cb0d281136524f73f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6055bb302ff5f40fd66eb5d6b9c89fa8"><td class="memItemLeft" align="right" valign="top"><a id="a6055bb302ff5f40fd66eb5d6b9c89fa8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>tick</b> (void)</td></tr>
+<tr class="separator:a6055bb302ff5f40fd66eb5d6b9c89fa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a3c224ca2f4613dd31c4227184785d19e"><td class="memItemLeft" align="right" valign="top"><a id="a3c224ca2f4613dd31c4227184785d19e"></a>
+Ticker&#160;</td><td class="memItemRight" valign="bottom"><b>ticker</b></td></tr>
+<tr class="separator:a3c224ca2f4613dd31c4227184785d19e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef3a518f178f337c59e7f8c44830ef16"><td class="memItemLeft" align="right" valign="top"><a id="aef3a518f178f337c59e7f8c44830ef16"></a>
+arm_pid_instance_f32&#160;</td><td class="memItemRight" valign="bottom"><b>pid</b></td></tr>
+<tr class="separator:aef3a518f178f337c59e7f8c44830ef16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0539fc2fefa10f26a79aa44cf20d17e2"><td class="memItemLeft" align="right" valign="top"><a id="a0539fc2fefa10f26a79aa44cf20d17e2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>running</b> = false</td></tr>
+<tr class="separator:a0539fc2fefa10f26a79aa44cf20d17e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dfa6b375ff6dff116e77084c443b6fd"><td class="memItemLeft" align="right" valign="top"><a id="a5dfa6b375ff6dff116e77084c443b6fd"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>inMin</b></td></tr>
+<tr class="separator:a5dfa6b375ff6dff116e77084c443b6fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab68edbe55e082e918b2426402c8977a4"><td class="memItemLeft" align="right" valign="top"><a id="ab68edbe55e082e918b2426402c8977a4"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>inMax</b></td></tr>
+<tr class="separator:ab68edbe55e082e918b2426402c8977a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe3cfe1bf4b9c3b7a9adb9417b320c04"><td class="memItemLeft" align="right" valign="top"><a id="afe3cfe1bf4b9c3b7a9adb9417b320c04"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>outMin</b></td></tr>
+<tr class="separator:afe3cfe1bf4b9c3b7a9adb9417b320c04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a292a0286da2368c91ab2b84e92ced511"><td class="memItemLeft" align="right" valign="top"><a id="a292a0286da2368c91ab2b84e92ced511"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>outMax</b></td></tr>
+<tr class="separator:a292a0286da2368c91ab2b84e92ced511"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab66dffb3291ee486568e8b73cb71831"><td class="memItemLeft" align="right" valign="top"><a id="aab66dffb3291ee486568e8b73cb71831"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>setPoint</b></td></tr>
+<tr class="separator:aab66dffb3291ee486568e8b73cb71831"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c2fd613d756a30ffab0d0145ee2a07c"><td class="memItemLeft" align="right" valign="top"><a id="a4c2fd613d756a30ffab0d0145ee2a07c"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>processLast</b></td></tr>
+<tr class="separator:a4c2fd613d756a30ffab0d0145ee2a07c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51a73944954237d1ec379a7c8f21bf7f"><td class="memItemLeft" align="right" valign="top"><a id="a51a73944954237d1ec379a7c8f21bf7f"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>outputLast</b></td></tr>
+<tr class="separator:a51a73944954237d1ec379a7c8f21bf7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac189f7a89e6340bb50d9bc19b1e8283e"><td class="memItemLeft" align="right" valign="top"><a id="ac189f7a89e6340bb50d9bc19b1e8283e"></a>
+float *&#160;</td><td class="memItemRight" valign="bottom"><b>process</b></td></tr>
+<tr class="separator:ac189f7a89e6340bb50d9bc19b1e8283e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>CMSIS-DSP <a class="el" href="classPID.html" title="CMSIS-DSP PID wrapper.">PID</a> wrapper. </p>
@@ -181,6 +228,8 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Passes <a class="el" href="classPID.html" title="CMSIS-DSP PID wrapper.">PID</a> output to implementation. </p>
 
+<p>Implemented in <a class="el" href="classMotor.html#a3e6d7463f7b29b13829685b03125ba1a">Motor</a>.</p>
+
 </div>
 </div>
 <a id="ae375e5add824feaf60a5118d0e61cc27"></a>
@@ -207,6 +256,8 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Function executed before computation occurs. </p>
+
+<p>Implemented in <a class="el" href="classMotor.html#aa7da054bd544c08c1a7aed5b8a8f669d">Motor</a>.</p>
 
 </div>
 </div>

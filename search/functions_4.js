@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['oncompute_32',['onCompute',['../classPID.html#a7dd54ea71e1f737d34a061ecf6960d68',1,'PID']]]
+  ['getsteps_44',['getSteps',['../classEncoder.html#acff6a808ec22905c247f582bded4a9d5',1,'Encoder']]]
 ];

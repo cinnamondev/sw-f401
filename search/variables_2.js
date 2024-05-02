@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mask_39',['mask',['../structBluetooth_1_1Command.html#acce997eb3063a7c5876aee873ac8d88a',1,'Bluetooth::Command']]]
+  ['deferqueue_56',['deferQueue',['../classBluetooth.html#a7d04d350c6cd9d7a2aff5e94f015eb23',1,'Bluetooth']]]
 ];

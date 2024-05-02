@@ -86,6 +86,8 @@ $(document).ready(function(){initNavTree('classMotor.html',''); initResizable();
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classMotor-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Motor Class Reference</div>  </div>
@@ -146,9 +148,81 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>outputRange</b> (floa
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setConfig</b> (<a class="el" href="structPID_1_1Config.html">PID::Config</a>)</td></tr>
 <tr class="separator:ad51e6cf4550da23023ff4068e6978c61 inherit pub_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a3e6d7463f7b29b13829685b03125ba1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMotor.html#a3e6d7463f7b29b13829685b03125ba1a">onCompute</a> (float) override</td></tr>
+<tr class="separator:a3e6d7463f7b29b13829685b03125ba1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7da054bd544c08c1a7aed5b8a8f669d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMotor.html#aa7da054bd544c08c1a7aed5b8a8f669d">preCompute</a> (void) override</td></tr>
+<tr class="separator:aa7da054bd544c08c1a7aed5b8a8f669d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a170cd694ceff2ea6cbb2e53d748c2da8"><td class="memItemLeft" align="right" valign="top"><a id="a170cd694ceff2ea6cbb2e53d748c2da8"></a>
+AnalogIn&#160;</td><td class="memItemRight" valign="bottom"><b>current</b></td></tr>
+<tr class="separator:a170cd694ceff2ea6cbb2e53d748c2da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3e6d7463f7b29b13829685b03125ba1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e6d7463f7b29b13829685b03125ba1a">&#9670;&nbsp;</a></span>onCompute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Motor::onCompute </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Passes <a class="el" href="classPID.html" title="CMSIS-DSP PID wrapper.">PID</a> output to implementation. </p>
+
+<p>Implements <a class="el" href="classPID.html#a7dd54ea71e1f737d34a061ecf6960d68">PID</a>.</p>
+
+</div>
+</div>
+<a id="aa7da054bd544c08c1a7aed5b8a8f669d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7da054bd544c08c1a7aed5b8a8f669d">&#9670;&nbsp;</a></span>preCompute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Motor::preCompute </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Function executed before computation occurs. </p>
+
+<p>Implements <a class="el" href="classPID.html#ae375e5add824feaf60a5118d0e61cc27">PID</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>lib/Motor/<a class="el" href="Motor_8hpp_source.html">Motor.hpp</a></li>
 <li>lib/Motor/Motor.cpp</li>

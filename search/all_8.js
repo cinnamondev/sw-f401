@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['readme_15',['README',['../md_lib_Bluetooth_README.html',1,'']]],
-  ['removecommand_16',['removeCommand',['../classBluetooth.html#a21df880e400f4f7ba8eab8dde9249cbe',1,'Bluetooth']]]
+  ['oncompute_16',['onCompute',['../classMotor.html#a3e6d7463f7b29b13829685b03125ba1a',1,'Motor::onCompute()'],['../classPID.html#a7dd54ea71e1f737d34a061ecf6960d68',1,'PID::onCompute()']]],
+  ['onsigio_17',['onSigio',['../classBluetooth.html#ac0971e7ed97ad04d9d70f18c1745cda1',1,'Bluetooth']]]
 ];

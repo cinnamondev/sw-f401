@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['start_17',['start',['../classBluetooth.html#ae936f177a424dd87dba7c506ebdbdd6a',1,'Bluetooth::start()'],['../classEncoder.html#ad9a4d22fb29fbca6df88720348f0a851',1,'Encoder::start()']]],
-  ['steering_20control_20principle_20of_20operation_18',['steering control principle of operation',['../md_src_readme.html',1,'']]],
-  ['stop_19',['stop',['../classBluetooth.html#aa934756cfd2a749edac258ec3bb5f91b',1,'Bluetooth::stop()'],['../classEncoder.html#a1da39fbf1d85bd36ab7aaad1a34ddc80',1,'Encoder::stop()']]]
+  ['pid_18',['PID',['../classPID.html',1,'']]],
+  ['poll_19',['poll',['../classBluetooth.html#a00d448a313063debd5d87dde15387169',1,'Bluetooth']]],
+  ['precompute_20',['preCompute',['../classMotor.html#aa7da054bd544c08c1a7aed5b8a8f669d',1,'Motor::preCompute()'],['../classPID.html#ae375e5add824feaf60a5118d0e61cc27',1,'PID::preCompute()']]]
 ];

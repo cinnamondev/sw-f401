@@ -2,6 +2,7 @@ var classPID =
 [
     [ "Config", "structPID_1_1Config.html", "structPID_1_1Config" ],
     [ "PID", "classPID.html#a0311b6f7de348499ce24e53ba353514a", null ],
+    [ "compute", "classPID.html#a9900dff400b1796cb0d281136524f73f", null ],
     [ "getConfig", "classPID.html#ae480b724f70661306c1a3224d089f625", null ],
     [ "inputRange", "classPID.html#a4a23b5199d44d74df1d1ca486275c437", null ],
     [ "isRunning", "classPID.html#a7635476f1979053906f35a17b5f4499b", null ],
@@ -13,5 +14,17 @@ var classPID =
     [ "setConfig", "classPID.html#ad51e6cf4550da23023ff4068e6978c61", null ],
     [ "setGains", "classPID.html#abe145cdd8c8aef96cb948a4e479bb007", null ],
     [ "start", "classPID.html#a1e9d0ec150e851d8f89fa364821d4953", null ],
-    [ "stop", "classPID.html#a4d6334109740a89607dd1a167eeced4f", null ]
+    [ "stop", "classPID.html#a4d6334109740a89607dd1a167eeced4f", null ],
+    [ "tick", "classPID.html#a6055bb302ff5f40fd66eb5d6b9c89fa8", null ],
+    [ "inMax", "classPID.html#ab68edbe55e082e918b2426402c8977a4", null ],
+    [ "inMin", "classPID.html#a5dfa6b375ff6dff116e77084c443b6fd", null ],
+    [ "outMax", "classPID.html#a292a0286da2368c91ab2b84e92ced511", null ],
+    [ "outMin", "classPID.html#afe3cfe1bf4b9c3b7a9adb9417b320c04", null ],
+    [ "outputLast", "classPID.html#a51a73944954237d1ec379a7c8f21bf7f", null ],
+    [ "pid", "classPID.html#aef3a518f178f337c59e7f8c44830ef16", null ],
+    [ "process", "classPID.html#ac189f7a89e6340bb50d9bc19b1e8283e", null ],
+    [ "processLast", "classPID.html#a4c2fd613d756a30ffab0d0145ee2a07c", null ],
+    [ "running", "classPID.html#a0539fc2fefa10f26a79aa44cf20d17e2", null ],
+    [ "setPoint", "classPID.html#aab66dffb3291ee486568e8b73cb71831", null ],
+    [ "ticker", "classPID.html#a3c224ca2f4613dd31c4227184785d19e", null ]
 ];

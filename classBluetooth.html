@@ -86,6 +86,8 @@ $(document).ready(function(){initNavTree('classBluetooth.html',''); initResizabl
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classBluetooth-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Bluetooth Class Reference</div>  </div>
@@ -105,7 +107,7 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8e0ee5695c58f4e69d00027a5778944e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetooth.html#a8e0ee5695c58f4e69d00027a5778944e">Bluetooth</a> (BufferedSerial *serial, EventQueue *, std::vector&lt; <a class="el" href="structBluetooth_1_1Command.html">Command</a> &gt; commands={}, bool startNow=false)</td></tr>
+<tr class="memitem:a8e0ee5695c58f4e69d00027a5778944e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetooth.html#a8e0ee5695c58f4e69d00027a5778944e">Bluetooth</a> (BufferedSerial *serial, EventQueue *, std::vector&lt; <a class="el" href="structBluetooth_1_1Command.html">Command</a> &gt; <a class="el" href="classBluetooth.html#a3f5bd24a717f56c3ca8b8b0bf4e2e117">commands</a>={}, bool startNow=false)</td></tr>
 <tr class="memdesc:a8e0ee5695c58f4e69d00027a5778944e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classBluetooth.html" title="Event-based HM-10 (Bluetooth/UART emulation) module.">Bluetooth</a> object.  <a href="classBluetooth.html#a8e0ee5695c58f4e69d00027a5778944e">More...</a><br /></td></tr>
 <tr class="separator:a8e0ee5695c58f4e69d00027a5778944e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdebda1061377bc4cadadccd68899d6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetooth.html#afdebda1061377bc4cadadccd68899d6d">addCommand</a> (<a class="el" href="structBluetooth_1_1Command.html">Bluetooth::Command</a> cmd)</td></tr>
@@ -121,6 +123,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>removeCommand</b> (ui
 <tr class="separator:ae936f177a424dd87dba7c506ebdbdd6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa934756cfd2a749edac258ec3bb5f91b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetooth.html#aa934756cfd2a749edac258ec3bb5f91b">stop</a> ()</td></tr>
 <tr class="separator:aa934756cfd2a749edac258ec3bb5f91b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ac0971e7ed97ad04d9d70f18c1745cda1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetooth.html#ac0971e7ed97ad04d9d70f18c1745cda1">onSigio</a> ()</td></tr>
+<tr class="memdesc:ac0971e7ed97ad04d9d70f18c1745cda1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attaches to the BufferedSerial's <code>sigio</code> event.  <a href="classBluetooth.html#ac0971e7ed97ad04d9d70f18c1745cda1">More...</a><br /></td></tr>
+<tr class="separator:ac0971e7ed97ad04d9d70f18c1745cda1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00d448a313063debd5d87dde15387169"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetooth.html#a00d448a313063debd5d87dde15387169">poll</a> ()</td></tr>
+<tr class="memdesc:a00d448a313063debd5d87dde15387169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the incoming bluetooth commands and flushes the queue.  <a href="classBluetooth.html#a00d448a313063debd5d87dde15387169">More...</a><br /></td></tr>
+<tr class="separator:a00d448a313063debd5d87dde15387169"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab37b2989d5151e36b30b9ab6a48af35b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetooth.html#ab37b2989d5151e36b30b9ab6a48af35b">commandParser</a> (uint8_t instruction)</td></tr>
+<tr class="memdesc:ab37b2989d5151e36b30b9ab6a48af35b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse a byte into a corresponding registered bluetooth command.  <a href="classBluetooth.html#ab37b2989d5151e36b30b9ab6a48af35b">More...</a><br /></td></tr>
+<tr class="separator:ab37b2989d5151e36b30b9ab6a48af35b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a7d04d350c6cd9d7a2aff5e94f015eb23"><td class="memItemLeft" align="right" valign="top">EventQueue *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetooth.html#a7d04d350c6cd9d7a2aff5e94f015eb23">deferQueue</a></td></tr>
+<tr class="separator:a7d04d350c6cd9d7a2aff5e94f015eb23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fb037fe4a2876452cbc883585e4d477"><td class="memItemLeft" align="right" valign="top">BufferedSerial *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetooth.html#a9fb037fe4a2876452cbc883585e4d477">s</a></td></tr>
+<tr class="separator:a9fb037fe4a2876452cbc883585e4d477"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f5bd24a717f56c3ca8b8b0bf4e2e117"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structBluetooth_1_1Command.html">Command</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBluetooth.html#a3f5bd24a717f56c3ca8b8b0bf4e2e117">commands</a></td></tr>
+<tr class="separator:a3f5bd24a717f56c3ca8b8b0bf4e2e117"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Event-based HM-10 (Bluetooth/UART emulation) module. </p>
@@ -250,6 +273,96 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>removeCommand</b> (ui
 
 </div>
 </div>
+<a id="ab37b2989d5151e36b30b9ab6a48af35b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab37b2989d5151e36b30b9ab6a48af35b">&#9670;&nbsp;</a></span>commandParser()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Bluetooth::commandParser </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>instruction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parse a byte into a corresponding registered bluetooth command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">instruction</td><td>Byte to parse </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac0971e7ed97ad04d9d70f18c1745cda1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0971e7ed97ad04d9d70f18c1745cda1">&#9670;&nbsp;</a></span>onSigio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Bluetooth::onSigio </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Attaches to the BufferedSerial's <code>sigio</code> event. </p>
+<dl class="section note"><dt>Note</dt><dd>Executes in ISR context! </dd></dl>
+
+</div>
+</div>
+<a id="a00d448a313063debd5d87dde15387169"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00d448a313063debd5d87dde15387169">&#9670;&nbsp;</a></span>poll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Bluetooth::poll </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads the incoming bluetooth commands and flushes the queue. </p>
+<dl class="section note"><dt>Note</dt><dd>This is called by <code>onSigio</code> by deferred call into the shared event queue. </dd></dl>
+
+</div>
+</div>
 <a id="a21df880e400f4f7ba8eab8dde9249cbe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a21df880e400f4f7ba8eab8dde9249cbe">&#9670;&nbsp;</a></span>removeCommand()</h2>
 
@@ -310,6 +423,76 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>removeCommand</b> (ui
       </table>
 </div><div class="memdoc">
 <p>Stop waiting for bluetooth commands </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3f5bd24a717f56c3ca8b8b0bf4e2e117"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f5bd24a717f56c3ca8b8b0bf4e2e117">&#9670;&nbsp;</a></span>commands</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structBluetooth_1_1Command.html">Command</a>&gt; Bluetooth::commands</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Vector of all registered commands </p>
+
+</div>
+</div>
+<a id="a7d04d350c6cd9d7a2aff5e94f015eb23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d04d350c6cd9d7a2aff5e94f015eb23">&#9670;&nbsp;</a></span>deferQueue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventQueue* Bluetooth::deferQueue</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Queue to execute blocking actions in. </p>
+
+</div>
+</div>
+<a id="a9fb037fe4a2876452cbc883585e4d477"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fb037fe4a2876452cbc883585e4d477">&#9670;&nbsp;</a></span>s</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BufferedSerial* Bluetooth::s</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>BLE UART Serial Interface </p>
 
 </div>
 </div>
