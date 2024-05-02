@@ -6,7 +6,21 @@
 
 /**
  * @brief Event-based HM-10 (Bluetooth/UART emulation) module.
- * 
+ *
+ * Use using Mbed OS 6's BufferedSerial. COMPATIBLE WITH BARE METAL PROFILE!
+ * Just include the "events" feature in mbed, and use code as documented in
+ * below example. If you are using the full RTOS, you can instead pass
+ * `mbed_event_queue` as the EventQueue, or `mbed_highprio_event_queue` (NOT
+ * reccomended.)
+ *
+ * This module attempts to be non-intrusive by deferring processing to an
+ * EventsQueue, which has the added effect that no additional work needs to be
+ * done to use blocking calls.
+ *
+ * Commands can also be dynamically added and removed at runtime, though its
+ * reccomended to avoid frequently, and you should pass a set of initial
+ * commands you expect to always use on initialization, ideally.
+ *
  * See following code example for usage:
  * @include bluetoothExample.cpp
  */
@@ -57,11 +71,11 @@ public:
   void removeCommand(Bluetooth::Command *cmd);
   void removeCommand(uint8_t cmd);
   void start(); /**< Start waiting for bluetooth commands */
-  void stop(); /**< Stop waiting for bluetooth commands */
+  void stop();  /**< Stop waiting for bluetooth commands */
 
 private:
-  EventQueue *deferQueue; /**< Queue to execute blocking actions in. */
-  BufferedSerial *s; /**< BLE UART Serial Interface*/
+  EventQueue *deferQueue;        /**< Queue to execute blocking actions in. */
+  BufferedSerial *s;             /**< BLE UART Serial Interface*/
   std::vector<Command> commands; /**< Vector of all registered commands*/
   /**
    * @brief Attaches to the BufferedSerial's `sigio` event.
@@ -71,12 +85,13 @@ private:
   /**
    * @brief Reads the incoming bluetooth commands and flushes
    * the queue.
-   * @note This is called by `onSigio` by deferred call into the shared event queue.
+   * @note This is called by `onSigio` by deferred call into the shared event
+   * queue.
    */
   void poll();
   /**
    * @brief Parse a byte into a corresponding registered bluetooth command.
-   * 
+   *
    * @param instruction Byte to parse
    */
   void commandParser(uint8_t instruction);
