@@ -1,0 +1,14 @@
+{
+    "name": "Mbed HM-10 BLE Service",
+    "version": "1.0.0",
+    "description": "HM-10 Command Based Communication Interface for MBED.",
+    "authors":
+    [
+      {
+        "name": "cinnamondev"
+      }
+    ],
+    "dependencies": {},
+    "frameworks": "mbed",
+    "platforms": "*"
+  }

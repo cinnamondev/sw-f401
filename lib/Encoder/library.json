@@ -1,0 +1,13 @@
+{
+    "name": "STM32F4-EasyEncoder",
+    "version": "1.0.0",
+    "description": "STM32F4 Encoder Wrapper (Intended for Mbed, can be used without using macro LIB_ENCODER_NOMBED).",
+    "authors":
+    [
+      {
+        "name": "cinnamondev"
+      }
+    ],
+    "dependencies": {},
+    "platforms": "ststm32"
+  }
