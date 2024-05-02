@@ -1,6 +1,7 @@
 var classEncoder =
 [
-    [ "Encoder", "classEncoder.html#a53b1f02f7154949d695f7afb4d6655ea", null ],
+    [ "Encoder", "classEncoder.html#ae989dc653292e3fb2479dc7daf6a08ba", null ],
     [ "getSteps", "classEncoder.html#acff6a808ec22905c247f582bded4a9d5", null ],
-    [ "update", "classEncoder.html#a9d7fcd5ad0cfde12666720a8b2ac0ae2", null ]
+    [ "start", "classEncoder.html#ad9a4d22fb29fbca6df88720348f0a851", null ],
+    [ "stop", "classEncoder.html#a1da39fbf1d85bd36ab7aaad1a34ddc80", null ]
 ];

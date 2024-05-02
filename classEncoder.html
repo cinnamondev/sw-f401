@@ -98,15 +98,20 @@ $(document).ready(function(){initNavTree('classEncoder.html',''); initResizable(
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a53b1f02f7154949d695f7afb4d6655ea"><td class="memItemLeft" align="right" valign="top"><a id="a53b1f02f7154949d695f7afb4d6655ea"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Encoder</b> (TIM_HandleTypeDef *timer)</td></tr>
-<tr class="separator:a53b1f02f7154949d695f7afb4d6655ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae989dc653292e3fb2479dc7daf6a08ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoder.html#ae989dc653292e3fb2479dc7daf6a08ba">Encoder</a> (TIM_HandleTypeDef *timer, std::chrono::microseconds sampleRate)</td></tr>
+<tr class="memdesc:ae989dc653292e3fb2479dc7daf6a08ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classEncoder.html" title="STM32F4 HAL TIM Encoder Wrapper intended for MBED OS.">Encoder</a> object.  <a href="classEncoder.html#ae989dc653292e3fb2479dc7daf6a08ba">More...</a><br /></td></tr>
+<tr class="separator:ae989dc653292e3fb2479dc7daf6a08ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acff6a808ec22905c247f582bded4a9d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoder.html#acff6a808ec22905c247f582bded4a9d5">getSteps</a> ()</td></tr>
 <tr class="memdesc:acff6a808ec22905c247f582bded4a9d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of steps since the previous 'tick'.  <a href="classEncoder.html#acff6a808ec22905c247f582bded4a9d5">More...</a><br /></td></tr>
 <tr class="separator:acff6a808ec22905c247f582bded4a9d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d7fcd5ad0cfde12666720a8b2ac0ae2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoder.html#a9d7fcd5ad0cfde12666720a8b2ac0ae2">update</a> ()</td></tr>
-<tr class="memdesc:a9d7fcd5ad0cfde12666720a8b2ac0ae2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the encoder ticker at the previously defined sample rate.  <a href="classEncoder.html#a9d7fcd5ad0cfde12666720a8b2ac0ae2">More...</a><br /></td></tr>
-<tr class="separator:a9d7fcd5ad0cfde12666720a8b2ac0ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9a4d22fb29fbca6df88720348f0a851"><td class="memItemLeft" align="right" valign="top"><a id="ad9a4d22fb29fbca6df88720348f0a851"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoder.html#ad9a4d22fb29fbca6df88720348f0a851">start</a> ()</td></tr>
+<tr class="memdesc:ad9a4d22fb29fbca6df88720348f0a851"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the encoder ticker at the previously defined sample rate. <br /></td></tr>
+<tr class="separator:ad9a4d22fb29fbca6df88720348f0a851"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1da39fbf1d85bd36ab7aaad1a34ddc80"><td class="memItemLeft" align="right" valign="top"><a id="a1da39fbf1d85bd36ab7aaad1a34ddc80"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoder.html#a1da39fbf1d85bd36ab7aaad1a34ddc80">stop</a> ()</td></tr>
+<tr class="memdesc:a1da39fbf1d85bd36ab7aaad1a34ddc80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop the encoder ticker. <br /></td></tr>
+<tr class="separator:a1da39fbf1d85bd36ab7aaad1a34ddc80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>STM32F4 HAL TIM <a class="el" href="classEncoder.html" title="STM32F4 HAL TIM Encoder Wrapper intended for MBED OS.">Encoder</a> Wrapper intended for MBED OS. </p>
@@ -125,7 +130,52 @@ Public Member Functions</h2></td></tr>
 <ol type="1">
 <li>Regularly call <code>update</code> yourself. You must be able to call this regularly somehow, or precisely determine the time between calls, as each call updates the steps as the number of steps since last update call. If you dont have mbed/use this feature, you will not be able to make use of <code>getSpeed</code>. </li>
 </ol>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae989dc653292e3fb2479dc7daf6a08ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae989dc653292e3fb2479dc7daf6a08ba">&#9670;&nbsp;</a></span>Encoder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Encoder::Encoder </td>
+          <td>(</td>
+          <td class="paramtype">TIM_HandleTypeDef *&#160;</td>
+          <td class="paramname"><em>timer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::chrono::microseconds&#160;</td>
+          <td class="paramname"><em>sampleRate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Construct a new <a class="el" href="classEncoder.html" title="STM32F4 HAL TIM Encoder Wrapper intended for MBED OS.">Encoder</a> object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timer</td><td>STM32 timer to use (see <code>Usage</code>.) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="acff6a808ec22905c247f582bded4a9d5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acff6a808ec22905c247f582bded4a9d5">&#9670;&nbsp;</a></span>getSteps()</h2>
 
@@ -143,26 +193,6 @@ Public Member Functions</h2></td></tr>
 
 <p>Returns the number of steps since the previous 'tick'. </p>
 <dl class="section return"><dt>Returns</dt><dd>unsigned int Number of steps since last tick. </dd></dl>
-
-</div>
-</div>
-<a id="a9d7fcd5ad0cfde12666720a8b2ac0ae2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d7fcd5ad0cfde12666720a8b2ac0ae2">&#9670;&nbsp;</a></span>update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Encoder::update </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Start the encoder ticker at the previously defined sample rate. </p>
-<p>Check for a change in steps counted from the timer. Call regularly (perhaps via a ticker or background event) for a regular speed. </p>
 
 </div>
 </div>
