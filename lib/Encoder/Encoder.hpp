@@ -37,7 +37,6 @@
  */
 class Encoder
 {
-  #define LIB_ENCODER_NOMBED
 public:
 #ifndef LIB_ENCODER_NOMBED
   /**
