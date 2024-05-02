@@ -4,6 +4,9 @@
             "target.features_add": ["STORAGE"],
             "target.components_add": ["FLASH", "FLASHIAP"],
             "target.restrict_size": "0x40000"
+        },
+        "*": {
+            "target.printf_lib": "std"
         }
     }
 }
