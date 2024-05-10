@@ -1,7 +1,7 @@
 {
     "name": "YAPID",
     "version": "1.0.0",
-    "description": "Mbed DSP Wrapper PID",
+    "description": "Yet Another PID controller (Mbed)",
     "authors":
     [
       {

@@ -4,9 +4,8 @@
 #ifndef PID_HPP
 #define PID_HPP
 
-#include <chrono>
 #include "mbed.h"
-#include "../mbed-dsp/cmsis_dsp/arm_math.h"
+#include "arm_math.h"
 #include <limits>
 
 #ifndef PID_CONTROL_INTERVAL
@@ -20,61 +19,46 @@
  */
 class PID {
 public:
-  PID();
-  bool ready(void);
-  bool start(void);
-  void stop(void);
-  void reset(void) { arm_pid_reset_f32(&pid); }
-  bool isRunning(void) { return running; }
-  void setGains(float kp, float ki, float kd);
-
-  void inputRange(float min, float max);
-  void outputRange(float min, float max);
   struct Config {
     float kp;
     float ki;
     float kd;
-    float in_min; float in_max;
-    float out_min; float out_max;
+    float in_min; 
+    float in_max;
+    float out_min; 
+    float out_max;
     float sp;
     float* pv;
-    std::chrono::microseconds tick_interval;
   };
+  PID(PID::Config, std::chrono::microseconds tickRate, bool startNow = false);
+  ~PID();
+  void start(void) { running = true; }
+  void stop(void) { running = false;}
+  bool isRunning(void) { return running; }
+  void reset(void) { arm_pid_reset_f32(&pid); }
+  void setGains(float kp, float ki, float kd);
   PID::Config getConfig(void) {
-    return (PID::Config) {
-      .kp = pid.Kp,
-      .ki = pid.Ki,
-      .kd = pid.Kd,
-      .in_min = inMin,
-      .in_max = inMax,
-      .out_min = outMin,
-      .out_max = outMax,
-      .sp = setPoint,
-    };
+    return config;
   }
-  void setConfig(PID::Config);
+  virtual void setConfig(PID::Config);
+  void inputRange(float min, float max);
+  void setProcess(float* pv) {
+    config.pv = pv;
+  }
+  void outputRange(float min, float max);
+  void setTarget(float sp) {
+    config.sp = sp;
+  }
 protected:
-  /**
-   * Passes PID output to implementation.
-   */
-  virtual void onCompute(float) = 0;
-  /**
-   * Function executed before computation occurs.
-   */
-  virtual void preCompute(void) = 0;
+  virtual void onCompute(float) {}; /**< Override to pass PID output to your implementation*/
+  virtual void preCompute(void) {}; /**< Override to have logic execute before computation */
+  arm_pid_instance_f32 pid;
+  PID::Config config;
 private:
   Ticker ticker;
-  arm_pid_instance_f32 pid;
   bool running = false;
-  float inMin;
-  float inMax;
-  float outMin;
-  float outMax;
-  float setPoint;
-  float processLast;
-  float outputLast;
-  float* process;
-  float compute(void);
   void tick(void);
 };
+
+
 #endif //PID_HPP

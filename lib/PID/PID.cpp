@@ -1,13 +1,17 @@
 #include "PID.hpp"
 
-void PID::setConfig(PID::Config config) {
-    inMin = config.in_min;
-    inMax = config.in_max;
-    outMin = config.out_min;
-    outMax = config.out_max;
-    setPoint = config.sp;
-    process = config.pv;
-    setGains(config.kp, config.ki, config.kd);
+PID::PID(PID::Config config, std::chrono::microseconds tickRate, bool startNow) {
+  setConfig(config);
+  running = startNow;
+  ticker.attach(callback(this, &PID::tick), tickRate);
+}
+
+PID::~PID() {
+  ticker.detach();  
+}
+void PID::setConfig(PID::Config _config) {
+  config = _config;
+  setGains(config.kp, config.ki, config.kd);
 }
 
 void PID::setGains(float kp, float ki, float kd) {
@@ -17,12 +21,17 @@ void PID::setGains(float kp, float ki, float kd) {
 
 void PID::tick() {
   preCompute();
-  float res = compute();
+  if (!running) { return; }
+  float input;
+  if (config.in_min > *config.pv) { input = config.in_min; }
+  else if (*config.pv < config.in_max) { input = config.in_max; }
+  else { input = *config.pv; }
+  float error = input - config.sp;
+  float res = arm_pid_f32(&pid, error);
+  if (res < config.in_min) {
+    res = (pid.state[2] = config.in_min);
+  } else if (res > config.in_max) {
+    res = (pid.state[2] = config.in_max);
+  }
   onCompute(res);
-}
-
-float PID::compute() {
-  us_ticker_init();
-    arm_pid_f32(&pid, *process);
-    return 0.0f;
 }
