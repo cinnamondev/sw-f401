@@ -54,10 +54,11 @@ public:
    * @return unsigned int Number of steps since last tick.
    */
   int getSteps();
+  float getSpeed();
+#ifndef LIB_ENCODER_NOMBED
   /**
    * @brief Start the encoder ticker at the previously defined sample rate.
    */
-#ifndef LIB_ENCODER_NOMBED
   void start();
   /**
    * @brief Stop the encoder ticker.
@@ -75,7 +76,8 @@ private:
 #ifndef LIB_ENCODER_NOMBED
   Ticker ticker; /**< Mbed ticker to update encoder*/
   std::chrono::microseconds tickRate; /**< Rate to update encoders at*/
-  uint32_t t1 = 0; /**< Previous time sample (mbed) */
+  uint32_t timeDelta = 0; /**< Time (microseconds) between samples (precise)*/
+  uint32_t t1 = 0; /**< Previous time sample */
 #else
   private:
 #endif
