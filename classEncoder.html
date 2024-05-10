@@ -106,6 +106,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acff6a808ec22905c247f582bded4a9d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoder.html#acff6a808ec22905c247f582bded4a9d5">getSteps</a> ()</td></tr>
 <tr class="memdesc:acff6a808ec22905c247f582bded4a9d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of steps since the previous 'tick'.  <a href="classEncoder.html#acff6a808ec22905c247f582bded4a9d5">More...</a><br /></td></tr>
 <tr class="separator:acff6a808ec22905c247f582bded4a9d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d2c3dd272bc05bf6a8ba06fb7191a11"><td class="memItemLeft" align="right" valign="top"><a id="a1d2c3dd272bc05bf6a8ba06fb7191a11"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>getSpeed</b> ()</td></tr>
+<tr class="separator:a1d2c3dd272bc05bf6a8ba06fb7191a11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9a4d22fb29fbca6df88720348f0a851"><td class="memItemLeft" align="right" valign="top"><a id="ad9a4d22fb29fbca6df88720348f0a851"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoder.html#ad9a4d22fb29fbca6df88720348f0a851">start</a> ()</td></tr>
 <tr class="memdesc:ad9a4d22fb29fbca6df88720348f0a851"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the encoder ticker at the previously defined sample rate. <br /></td></tr>
@@ -128,6 +131,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a12a28de03421d48ee5d02e2ca68ec5a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbf7055d6a6795a6a5a05d5280e2d118"><td class="memItemLeft" align="right" valign="top">std::chrono::microseconds&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoder.html#afbf7055d6a6795a6a5a05d5280e2d118">tickRate</a></td></tr>
 <tr class="separator:afbf7055d6a6795a6a5a05d5280e2d118"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ac6048076be72283111944d7f99ba24"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoder.html#a1ac6048076be72283111944d7f99ba24">timeDelta</a> = 0</td></tr>
+<tr class="separator:a1ac6048076be72283111944d7f99ba24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46ca159361a59ab34d4bba69242ba5ef"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoder.html#a46ca159361a59ab34d4bba69242ba5ef">t1</a> = 0</td></tr>
 <tr class="separator:a46ca159361a59ab34d4bba69242ba5ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a582f5d2f11f927e206f776c7445ce37f"><td class="memItemLeft" align="right" valign="top">TIM_HandleTypeDef *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEncoder.html#a582f5d2f11f927e206f776c7445ce37f">hwTimer</a></td></tr>
@@ -287,7 +292,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>c1</b> = 0</td></
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Previous time sample (mbed) </p>
+<p>Previous time sample </p>
 
 </div>
 </div>
@@ -334,6 +339,29 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>c1</b> = 0</td></
 </table>
 </div><div class="memdoc">
 <p>Rate to update encoders at </p>
+
+</div>
+</div>
+<a id="a1ac6048076be72283111944d7f99ba24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ac6048076be72283111944d7f99ba24">&#9670;&nbsp;</a></span>timeDelta</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Encoder::timeDelta = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Time (microseconds) between samples (precise) </p>
 
 </div>
 </div>
