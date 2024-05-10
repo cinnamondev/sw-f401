@@ -25,6 +25,7 @@ void Bluetooth::poll() {
   while (s->read(&cIn, 1) > 0) { // store latest command & parse.
     commandParser(cIn);
   }
+  fflush(stdout);
 }
 
 void Bluetooth::commandParser(uint8_t cmd) {
