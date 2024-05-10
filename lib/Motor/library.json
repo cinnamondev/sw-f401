@@ -1,0 +1,17 @@
+{
+    "name": "MotorController",
+    "version": "1.0.0",
+    "description": "Mbed Motor Controller Wrapper",
+    "authors":
+    [
+      {
+        "name": "cinnamondev"
+      }
+    ],
+    "dependencies": {
+      "YAPID": "^1.0.0",
+      "STM32F4-EasyEncoder": "^1.0.0"
+    },
+    "frameworks": "mbed",
+    "platforms": "*"
+  }
