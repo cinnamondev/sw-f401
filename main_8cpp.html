@@ -84,6 +84,7 @@ $(document).ready(function(){initNavTree('main_8cpp.html',''); initResizable(); 
 
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
@@ -93,55 +94,182 @@ $(document).ready(function(){initNavTree('main_8cpp.html',''); initResizable(); 
 
 <p>Line following buggy firmware Line following buggy.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;mbed.h&quot;</code><br />
-<code>#include &quot;TDBStore.h&quot;</code><br />
-<code>#include &quot;FlashIAPBlockDevice.h&quot;</code><br />
-<code>#include &quot;../lib/logging.h&quot;</code><br />
+<div class="textblock"><code>#include &quot;main.h&quot;</code><br />
 <code>#include &quot;Bluetooth.hpp&quot;</code><br />
-<code>#include &quot;Encoder.hpp&quot;</code><br />
+<code>#include &quot;BuggyControl.hpp&quot;</code><br />
+<code>#include &quot;FlashIAPBlockDevice.h&quot;</code><br />
+<code>#include &quot;LineSensor.hpp&quot;</code><br />
 <code>#include &quot;Motor.hpp&quot;</code><br />
-<code>#include &quot;Movement.hpp&quot;</code><br />
+<code>#include &quot;TDBStore.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="defaultConfigs_8hpp_source.html">defaultConfigs.hpp</a>&quot;</code><br />
 <code>#include &quot;ll_init.h&quot;</code><br />
+<code>#include &quot;logging.h&quot;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a43aacdc113dbe0138b432af1ef4c315d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a43aacdc113dbe0138b432af1ef4c315d">TRY_GET_PID</a>(key,  configPtr,  fallback)</td></tr>
+<tr class="memdesc:a43aacdc113dbe0138b432af1ef4c315d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro Retrieve <a class="el" href="classPID.html" title="CMSIS-DSP PID wrapper.">PID</a> Configuration from TDBStore database.  <a href="main_8cpp.html#a43aacdc113dbe0138b432af1ef4c315d">More...</a><br /></td></tr>
+<tr class="separator:a43aacdc113dbe0138b432af1ef4c315d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac525c4759bae9f8af28e22a29e4996a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aac525c4759bae9f8af28e22a29e4996a">TRY_SAVE_PID</a>(key,  configPtr)</td></tr>
+<tr class="memdesc:aac525c4759bae9f8af28e22a29e4996a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro Save <a class="el" href="classPID.html" title="CMSIS-DSP PID wrapper.">PID</a> Configuration from TDBStore database.  <a href="main_8cpp.html#aac525c4759bae9f8af28e22a29e4996a">More...</a><br /></td></tr>
+<tr class="separator:aac525c4759bae9f8af28e22a29e4996a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a956249a40cf8d99bfec011f100ead735"><td class="memItemLeft" align="right" valign="top"><a id="a956249a40cf8d99bfec011f100ead735"></a>
 DigitalOut&#160;</td><td class="memItemRight" valign="bottom"><b>out</b> (LED1)</td></tr>
 <tr class="separator:a956249a40cf8d99bfec011f100ead735"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a200976ce24b34872e12b808f2ca9c916"><td class="memItemLeft" align="right" valign="top"><a id="a200976ce24b34872e12b808f2ca9c916"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>toggleLED</b> (uint8_t cmd)</td></tr>
-<tr class="separator:a200976ce24b34872e12b808f2ca9c916"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac10b6d5022ac351f1e8c83c7084862ed"><td class="memItemLeft" align="right" valign="top"><a id="ac10b6d5022ac351f1e8c83c7084862ed"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pingPong</b> (uint8_t cmd)</td></tr>
-<tr class="separator:ac10b6d5022ac351f1e8c83c7084862ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73b3c38c567e27e1cc61550e65cd6a05"><td class="memItemLeft" align="right" valign="top"><a id="a73b3c38c567e27e1cc61550e65cd6a05"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>buggyStart</b> (uint8_t cmd)</td></tr>
-<tr class="separator:a73b3c38c567e27e1cc61550e65cd6a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29727167a6029ea67abce68b45259071"><td class="memItemLeft" align="right" valign="top"><a id="a29727167a6029ea67abce68b45259071"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>buggyStop</b> (uint8_t cmd)</td></tr>
-<tr class="separator:a29727167a6029ea67abce68b45259071"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5302ecc58a178ddc62983f7136f8107e"><td class="memItemLeft" align="right" valign="top"><a id="a5302ecc58a178ddc62983f7136f8107e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>buggyTurnaround</b> (uint8_t cmd)</td></tr>
-<tr class="separator:a5302ecc58a178ddc62983f7136f8107e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a776239051874357085b1ecc8e6b7b809"><td class="memItemLeft" align="right" valign="top"><a id="a776239051874357085b1ecc8e6b7b809"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>commandLinePosition</b> (uint8_t cmd)</td></tr>
-<tr class="separator:a776239051874357085b1ecc8e6b7b809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af114d84f097501c31683caa99a716e7b"><td class="memItemLeft" align="right" valign="top"><a id="af114d84f097501c31683caa99a716e7b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>toggleOutput</b> (uint8_t cmd)</td></tr>
-<tr class="separator:af114d84f097501c31683caa99a716e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a415d40f2c687ef745b6b2bcae655c0bd"><td class="memItemLeft" align="right" valign="top"><a id="a415d40f2c687ef745b6b2bcae655c0bd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>toggleController</b> (uint8_t cmd)</td></tr>
+<tr class="separator:a415d40f2c687ef745b6b2bcae655c0bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f0f3f9565f1a93bcab4d52a4cf7a825"><td class="memItemLeft" align="right" valign="top"><a id="a0f0f3f9565f1a93bcab4d52a4cf7a825"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>bleCommandSaveAllPID</b> (uint8_t cmd)</td></tr>
+<tr class="separator:a0f0f3f9565f1a93bcab4d52a4cf7a825"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1730ffe1e560465665eb47d9264826f9"><td class="memItemLeft" align="right" valign="top"><a id="a1730ffe1e560465665eb47d9264826f9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Error_Handler</b> (void)</td></tr>
+<tr class="separator:a1730ffe1e560465665eb47d9264826f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97c972c42cb11129110bea3e528f5f72"><td class="memItemLeft" align="right" valign="top"><a id="a97c972c42cb11129110bea3e528f5f72"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>dbg</b> ()</td></tr>
+<tr class="separator:a97c972c42cb11129110bea3e528f5f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6bba4daf394faecc83ed8ab4b6de162"><td class="memItemLeft" align="right" valign="top"><a id="ae6bba4daf394faecc83ed8ab4b6de162"></a>
+InterruptIn&#160;</td><td class="memItemRight" valign="bottom"><b>button</b> (PB_1)</td></tr>
+<tr class="separator:ae6bba4daf394faecc83ed8ab4b6de162"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ed6af84617fb18cb41dc5b39d332e27"><td class="memItemLeft" align="right" valign="top"><a id="a1ed6af84617fb18cb41dc5b39d332e27"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>updateEncoders</b> (void)</td></tr>
+<tr class="separator:a1ed6af84617fb18cb41dc5b39d332e27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a591edffcdc808305b4a7f9e385292113"><td class="memItemLeft" align="right" valign="top"><a id="a591edffcdc808305b4a7f9e385292113"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>doOtherThing</b> (void)</td></tr>
+<tr class="separator:a591edffcdc808305b4a7f9e385292113"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top"><a id="a840291bc02cba5474a4cb46a9b9566fe"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (void)</td></tr>
 <tr class="separator:a840291bc02cba5474a4cb46a9b9566fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a1daa67798bc2b17bd90c5c46ce39fbfe"><td class="memItemLeft" align="right" valign="top"><a id="a1daa67798bc2b17bd90c5c46ce39fbfe"></a>
-Queue&lt; Movement, 16 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>movenentQueue</b></td></tr>
-<tr class="separator:a1daa67798bc2b17bd90c5c46ce39fbfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45847713ca021bfdaae9bce6f55b066c"><td class="memItemLeft" align="right" valign="top"><a id="a45847713ca021bfdaae9bce6f55b066c"></a>
+TIM_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>htim3</b></td></tr>
+<tr class="separator:a45847713ca021bfdaae9bce6f55b066c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fbf0310c5559d8a6048a0f55b6b28c6"><td class="memItemLeft" align="right" valign="top"><a id="a7fbf0310c5559d8a6048a0f55b6b28c6"></a>
+TIM_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>htim4</b></td></tr>
+<tr class="separator:a7fbf0310c5559d8a6048a0f55b6b28c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9479c261d65eecedd3d9582f7f0f89c"><td class="memItemLeft" align="right" valign="top"><a id="aa9479c261d65eecedd3d9582f7f0f89c"></a>
+UART_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><b>huart2</b></td></tr>
+<tr class="separator:aa9479c261d65eecedd3d9582f7f0f89c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b36a30b0670b3b6518e5963b2f03b31"><td class="memItemLeft" align="right" valign="top"><a id="a2b36a30b0670b3b6518e5963b2f03b31"></a>
+<a class="el" href="structPID_1_1Config.html">PID::Config</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lsCfg</b></td></tr>
+<tr class="separator:a2b36a30b0670b3b6518e5963b2f03b31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae18140b5fe6f6c1a6ee2116a99e1d643"><td class="memItemLeft" align="right" valign="top"><a id="ae18140b5fe6f6c1a6ee2116a99e1d643"></a>
+<a class="el" href="structMotor_1_1Config.html">Motor::Config</a>&#160;</td><td class="memItemRight" valign="bottom"><b>motorLCfg</b> = <a class="el" href="defaultConfigs_8hpp.html#a21632cb5005607da1680feaea1a632be">MOTORL_DEFAULT</a></td></tr>
+<tr class="separator:ae18140b5fe6f6c1a6ee2116a99e1d643"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a794eea4439aa0672741c4d3fe971e4c4"><td class="memItemLeft" align="right" valign="top"><a id="a794eea4439aa0672741c4d3fe971e4c4"></a>
+<a class="el" href="structMotor_1_1Config.html">Motor::Config</a>&#160;</td><td class="memItemRight" valign="bottom"><b>motorRCfg</b> = <a class="el" href="defaultConfigs_8hpp.html#a61eb4b502b04346543a3387d623db1fd">MOTORR_DEFAULT</a></td></tr>
+<tr class="separator:a794eea4439aa0672741c4d3fe971e4c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a005dc01b5d847ffff135b958624f9e6f"><td class="memItemLeft" align="right" valign="top"><a id="a005dc01b5d847ffff135b958624f9e6f"></a>
+<a class="el" href="classLineSensor.html">LineSensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lineSensor</b> (LS_21A_CFG)</td></tr>
+<tr class="separator:a005dc01b5d847ffff135b958624f9e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Line following buggy firmware Line following buggy. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a43aacdc113dbe0138b432af1ef4c315d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43aacdc113dbe0138b432af1ef4c315d">&#9670;&nbsp;</a></span>TRY_GET_PID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TRY_GET_PID</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">key, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">configPtr, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">fallback&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  {                                                                            \</div>
+<div class="line">                                                                               \</div>
+<div class="line">    if (<span class="keywordtype">int</span> macroerr = tdbStore.get(key, configPtr, <span class="keyword">sizeof</span>(<a class="code" href="structPID_1_1Config.html">PID::Config</a>));      \</div>
+<div class="line">        macroerr != MBED_SUCCESS) {                                            \</div>
+<div class="line">      printf(<span class="stringliteral">&quot;TDBStore Key Retrieve Fail Code %d. Failed to get &quot;</span> #key         \</div>
+<div class="line">             <span class="stringliteral">&quot;. Using fallback!&quot;</span>,                                              \</div>
+<div class="line">             macroerr);                                                        \</div>
+<div class="line">      fflush(stdout);                                                          \</div>
+<div class="line">      *(configPtr) = fallback;                                                 \</div>
+<div class="line">    }                                                                          \</div>
+<div class="line">  }</div>
+<div class="ttc" id="astructPID_1_1Config_html"><div class="ttname"><a href="structPID_1_1Config.html">PID::Config</a></div><div class="ttdef"><b>Definition:</b> PID.hpp:22</div></div>
+</div><!-- fragment -->
+<p>Macro Retrieve <a class="el" href="classPID.html" title="CMSIS-DSP PID wrapper.">PID</a> Configuration from TDBStore database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>Matching key to retrieve from (string literal) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aac525c4759bae9f8af28e22a29e4996a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac525c4759bae9f8af28e22a29e4996a">&#9670;&nbsp;</a></span>TRY_SAVE_PID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TRY_SAVE_PID</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">key, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">configPtr&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  {                                                                            \</div>
+<div class="line">    if (<span class="keywordtype">int</span> macroerr = tdbStore.set(key, configPtr, <span class="keyword">sizeof</span>(<a class="code" href="structPID_1_1Config.html">PID::Config</a>), 0);   \</div>
+<div class="line">        macroerr != MBED_SUCCESS) {                                            \</div>
+<div class="line">      printf(<span class="stringliteral">&quot;TDBStore Key Save Fail Code %d. Failed to save to &quot;</span> #key,        \</div>
+<div class="line">             macroerr);                                                        \</div>
+<div class="line">      fflush(stdout);                                                          \</div>
+<div class="line">    }                                                                          \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+<p>Macro Save <a class="el" href="classPID.html" title="CMSIS-DSP PID wrapper.">PID</a> Configuration from TDBStore database. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>Matching key to save to </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
