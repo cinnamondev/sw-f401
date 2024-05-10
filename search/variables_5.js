@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['s_60',['s',['../classBluetooth.html#a9fb037fe4a2876452cbc883585e4d477',1,'Bluetooth']]],
-  ['steps_61',['steps',['../classEncoder.html#a58cdedf94e6aeaacfbf12acee7f51f9b',1,'Encoder']]]
+  ['left_92',['left',['../structConditionMovement.html#a6a13d9b18c5f29ffb8872f5d486195b8',1,'ConditionMovement']]],
+  ['linesensor_93',['lineSensor',['../classBuggyController.html#a11a8ea1643a2fa498a53f15c26803f97',1,'BuggyController']]]
 ];

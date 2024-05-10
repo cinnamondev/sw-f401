@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['pid_18',['PID',['../classPID.html',1,'']]],
-  ['poll_19',['poll',['../classBluetooth.html#a00d448a313063debd5d87dde15387169',1,'Bluetooth']]],
-  ['precompute_20',['preCompute',['../classMotor.html#aa7da054bd544c08c1a7aed5b8a8f669d',1,'Motor::preCompute()'],['../classPID.html#ae375e5add824feaf60a5118d0e61cc27',1,'PID::preCompute()']]]
+  ['onsigio_33',['onSigio',['../classBluetooth.html#ac0971e7ed97ad04d9d70f18c1745cda1',1,'Bluetooth']]]
 ];

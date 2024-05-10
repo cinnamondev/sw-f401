@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('classMotor.html',''); initResizable();
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classMotor-members.html">List of all members</a>  </div>
@@ -93,6 +94,11 @@ $(document).ready(function(){initNavTree('classMotor.html',''); initResizable();
 <div class="title">Motor Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Mbed + STSTM32 <a class="el" href="classEncoder.html" title="STM32F4 HAL TIM Encoder Wrapper intended for MBED OS.">Encoder</a> + <a class="el" href="classMotor.html" title="Mbed + STSTM32 Encoder + Motor PID Controller.">Motor</a> <a class="el" href="classPID.html" title="CMSIS-DSP PID wrapper.">PID</a> Controller.  
+ <a href="classMotor.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Motor_8hpp_source.html">Motor.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Motor:</div>
 <div class="dyncontent">
@@ -106,94 +112,91 @@ Inheritance diagram for Motor:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structMotor_1_1Config.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classMotor.html" title="Mbed + STSTM32 Encoder + Motor PID Controller.">Motor</a> pinout + <a class="el" href="classPID.html" title="CMSIS-DSP PID wrapper.">PID</a> configuration.  <a href="structMotor_1_1Config.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9983a0e1663ca090ef361c8fafa8a4c8"><td class="memItemLeft" align="right" valign="top"><a id="a9983a0e1663ca090ef361c8fafa8a4c8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Motor</b> (<a class="el" href="structMotor_1_1Config.html">Motor::Config</a>)</td></tr>
-<tr class="separator:a9983a0e1663ca090ef361c8fafa8a4c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9e5f7d2e96638f47e55c18a04af006d"><td class="memItemLeft" align="right" valign="top"><a id="ac9e5f7d2e96638f47e55c18a04af006d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Motor</b> (PinName pwm, PinName current, <a class="el" href="structPID_1_1Config.html">PID::Config</a> pidConfig)</td></tr>
-<tr class="separator:ac9e5f7d2e96638f47e55c18a04af006d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_classPID"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classPID')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classPID.html">PID</a></td></tr>
-<tr class="memitem:a20607b6111b736a03065c0841efd962d inherit pub_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="a20607b6111b736a03065c0841efd962d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>ready</b> (void)</td></tr>
-<tr class="separator:a20607b6111b736a03065c0841efd962d inherit pub_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e9d0ec150e851d8f89fa364821d4953 inherit pub_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="a1e9d0ec150e851d8f89fa364821d4953"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> (void)</td></tr>
-<tr class="separator:a1e9d0ec150e851d8f89fa364821d4953 inherit pub_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d6334109740a89607dd1a167eeced4f inherit pub_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="a4d6334109740a89607dd1a167eeced4f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>stop</b> (void)</td></tr>
-<tr class="separator:a4d6334109740a89607dd1a167eeced4f inherit pub_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73cdd43d93f2cfcf19b62f7e5022bb90 inherit pub_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="a73cdd43d93f2cfcf19b62f7e5022bb90"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> (void)</td></tr>
-<tr class="separator:a73cdd43d93f2cfcf19b62f7e5022bb90 inherit pub_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7635476f1979053906f35a17b5f4499b inherit pub_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="a7635476f1979053906f35a17b5f4499b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRunning</b> (void)</td></tr>
-<tr class="separator:a7635476f1979053906f35a17b5f4499b inherit pub_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe145cdd8c8aef96cb948a4e479bb007 inherit pub_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="abe145cdd8c8aef96cb948a4e479bb007"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setGains</b> (float kp, float ki, float kd)</td></tr>
-<tr class="separator:abe145cdd8c8aef96cb948a4e479bb007 inherit pub_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a23b5199d44d74df1d1ca486275c437 inherit pub_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="a4a23b5199d44d74df1d1ca486275c437"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>inputRange</b> (float min, float max)</td></tr>
-<tr class="separator:a4a23b5199d44d74df1d1ca486275c437 inherit pub_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ecbb47eb8f864b509efa01704111c87 inherit pub_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="a3ecbb47eb8f864b509efa01704111c87"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>outputRange</b> (float min, float max)</td></tr>
-<tr class="separator:a3ecbb47eb8f864b509efa01704111c87 inherit pub_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae480b724f70661306c1a3224d089f625 inherit pub_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="ae480b724f70661306c1a3224d089f625"></a>
-<a class="el" href="structPID_1_1Config.html">PID::Config</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getConfig</b> (void)</td></tr>
-<tr class="separator:ae480b724f70661306c1a3224d089f625 inherit pub_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad51e6cf4550da23023ff4068e6978c61 inherit pub_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="ad51e6cf4550da23023ff4068e6978c61"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setConfig</b> (<a class="el" href="structPID_1_1Config.html">PID::Config</a>)</td></tr>
-<tr class="separator:ad51e6cf4550da23023ff4068e6978c61 inherit pub_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42e412eef9eb40c246b52dabc2344673"><td class="memItemLeft" align="right" valign="top"><a id="a42e412eef9eb40c246b52dabc2344673"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Motor</b> (<a class="el" href="structMotor_1_1Config.html">Motor::Config</a> config, TIM_HandleTypeDef *tim)</td></tr>
+<tr class="separator:a42e412eef9eb40c246b52dabc2344673"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab61c9b0ce78fd7b91a96176a5cfa9142"><td class="memItemLeft" align="right" valign="top"><a id="ab61c9b0ce78fd7b91a96176a5cfa9142"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setSpeed</b> (float stepsPTick)</td></tr>
+<tr class="separator:ab61c9b0ce78fd7b91a96176a5cfa9142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6755430b9942fb6a6b0e80a22cdc0938"><td class="memItemLeft" align="right" valign="top"><a id="a6755430b9942fb6a6b0e80a22cdc0938"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setConfig</b> (<a class="el" href="structPID_1_1Config.html">PID::Config</a>) override</td></tr>
+<tr class="separator:a6755430b9942fb6a6b0e80a22cdc0938"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe145cdd8c8aef96cb948a4e479bb007"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMotor.html#abe145cdd8c8aef96cb948a4e479bb007">setGains</a> (float kp, float ki, float kd)</td></tr>
+<tr class="separator:abe145cdd8c8aef96cb948a4e479bb007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a9510a109c4dbab498d6af583f4ddc744"><td class="memItemLeft" align="right" valign="top"><a id="a9510a109c4dbab498d6af583f4ddc744"></a>
+<a class="el" href="classEncoder.html">Encoder</a>&#160;</td><td class="memItemRight" valign="bottom"><b>encoder</b></td></tr>
+<tr class="separator:a9510a109c4dbab498d6af583f4ddc744"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a3e6d7463f7b29b13829685b03125ba1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMotor.html#a3e6d7463f7b29b13829685b03125ba1a">onCompute</a> (float) override</td></tr>
+<tr class="memitem:a3e6d7463f7b29b13829685b03125ba1a"><td class="memItemLeft" align="right" valign="top"><a id="a3e6d7463f7b29b13829685b03125ba1a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>onCompute</b> (float) override</td></tr>
 <tr class="separator:a3e6d7463f7b29b13829685b03125ba1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7da054bd544c08c1a7aed5b8a8f669d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMotor.html#aa7da054bd544c08c1a7aed5b8a8f669d">preCompute</a> (void) override</td></tr>
 <tr class="separator:aa7da054bd544c08c1a7aed5b8a8f669d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a170cd694ceff2ea6cbb2e53d748c2da8"><td class="memItemLeft" align="right" valign="top"><a id="a170cd694ceff2ea6cbb2e53d748c2da8"></a>
-AnalogIn&#160;</td><td class="memItemRight" valign="bottom"><b>current</b></td></tr>
-<tr class="separator:a170cd694ceff2ea6cbb2e53d748c2da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81c29fb02c5ac55f12dacb6261ec61f5"><td class="memItemLeft" align="right" valign="top"><a id="a81c29fb02c5ac55f12dacb6261ec61f5"></a>
+PwmOut&#160;</td><td class="memItemRight" valign="bottom"><b>pwmOut</b></td></tr>
+<tr class="separator:a81c29fb02c5ac55f12dacb6261ec61f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee22669add18744bbddbd2bb267bce13"><td class="memItemLeft" align="right" valign="top"><a id="aee22669add18744bbddbd2bb267bce13"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>speed</b> = 0</td></tr>
+<tr class="separator:aee22669add18744bbddbd2bb267bce13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
+<tr class="memitem:ad51a3ba2ebd091e9162fd48b8a854ace inherit pro_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="ad51a3ba2ebd091e9162fd48b8a854ace"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>PID</b> (<a class="el" href="structPID_1_1Config.html">PID::Config</a>, std::chrono::microseconds tickRate, bool startNow=false)</td></tr>
+<tr class="separator:ad51a3ba2ebd091e9162fd48b8a854ace inherit pro_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a320711e355a5bb40eb72c4c8443e75da inherit pro_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="a320711e355a5bb40eb72c4c8443e75da"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>start</b> (void)</td></tr>
+<tr class="separator:a320711e355a5bb40eb72c4c8443e75da inherit pro_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d6334109740a89607dd1a167eeced4f inherit pro_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="a4d6334109740a89607dd1a167eeced4f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>stop</b> (void)</td></tr>
+<tr class="separator:a4d6334109740a89607dd1a167eeced4f inherit pro_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7635476f1979053906f35a17b5f4499b inherit pro_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="a7635476f1979053906f35a17b5f4499b"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isRunning</b> (void)</td></tr>
+<tr class="separator:a7635476f1979053906f35a17b5f4499b inherit pro_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73cdd43d93f2cfcf19b62f7e5022bb90 inherit pro_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="a73cdd43d93f2cfcf19b62f7e5022bb90"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> (void)</td></tr>
+<tr class="separator:a73cdd43d93f2cfcf19b62f7e5022bb90 inherit pro_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe145cdd8c8aef96cb948a4e479bb007 inherit pro_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="abe145cdd8c8aef96cb948a4e479bb007"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setGains</b> (float kp, float ki, float kd)</td></tr>
+<tr class="separator:abe145cdd8c8aef96cb948a4e479bb007 inherit pro_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae480b724f70661306c1a3224d089f625 inherit pro_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="ae480b724f70661306c1a3224d089f625"></a>
+<a class="el" href="structPID_1_1Config.html">PID::Config</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getConfig</b> (void)</td></tr>
+<tr class="separator:ae480b724f70661306c1a3224d089f625 inherit pro_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a23b5199d44d74df1d1ca486275c437 inherit pro_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="a4a23b5199d44d74df1d1ca486275c437"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>inputRange</b> (float min, float max)</td></tr>
+<tr class="separator:a4a23b5199d44d74df1d1ca486275c437 inherit pro_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd4fd2aefb7ec97d249a8776678df567 inherit pro_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="abd4fd2aefb7ec97d249a8776678df567"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setProcess</b> (float *pv)</td></tr>
+<tr class="separator:abd4fd2aefb7ec97d249a8776678df567 inherit pro_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ecbb47eb8f864b509efa01704111c87 inherit pro_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="a3ecbb47eb8f864b509efa01704111c87"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>outputRange</b> (float min, float max)</td></tr>
+<tr class="separator:a3ecbb47eb8f864b509efa01704111c87 inherit pro_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bbc995b20fed636ab3d8454010df54d inherit pro_methods_classPID"><td class="memItemLeft" align="right" valign="top"><a id="a5bbc995b20fed636ab3d8454010df54d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setTarget</b> (float sp)</td></tr>
+<tr class="separator:a5bbc995b20fed636ab3d8454010df54d inherit pro_methods_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_classPID"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classPID')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classPID.html">PID</a></td></tr>
+<tr class="memitem:aef3a518f178f337c59e7f8c44830ef16 inherit pro_attribs_classPID"><td class="memItemLeft" align="right" valign="top">arm_pid_instance_f32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPID.html#aef3a518f178f337c59e7f8c44830ef16">pid</a></td></tr>
+<tr class="separator:aef3a518f178f337c59e7f8c44830ef16 inherit pro_attribs_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8939b00f6f4fd2b82cc2c59f4c74df8f inherit pro_attribs_classPID"><td class="memItemLeft" align="right" valign="top"><a id="a8939b00f6f4fd2b82cc2c59f4c74df8f"></a>
+<a class="el" href="structPID_1_1Config.html">PID::Config</a>&#160;</td><td class="memItemRight" valign="bottom"><b>config</b></td></tr>
+<tr class="separator:a8939b00f6f4fd2b82cc2c59f4c74df8f inherit pro_attribs_classPID"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3e6d7463f7b29b13829685b03125ba1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e6d7463f7b29b13829685b03125ba1a">&#9670;&nbsp;</a></span>onCompute()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Motor::onCompute </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Passes <a class="el" href="classPID.html" title="CMSIS-DSP PID wrapper.">PID</a> output to implementation. </p>
-
-<p>Implements <a class="el" href="classPID.html#a7dd54ea71e1f737d34a061ecf6960d68">PID</a>.</p>
-
-</div>
-</div>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Mbed + STSTM32 <a class="el" href="classEncoder.html" title="STM32F4 HAL TIM Encoder Wrapper intended for MBED OS.">Encoder</a> + <a class="el" href="classMotor.html" title="Mbed + STSTM32 Encoder + Motor PID Controller.">Motor</a> <a class="el" href="classPID.html" title="CMSIS-DSP PID wrapper.">PID</a> Controller. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa7da054bd544c08c1a7aed5b8a8f669d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa7da054bd544c08c1a7aed5b8a8f669d">&#9670;&nbsp;</a></span>preCompute()</h2>
 
@@ -217,9 +220,24 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Function executed before computation occurs. </p>
+<p>Override to pass <a class="el" href="classPID.html" title="CMSIS-DSP PID wrapper.">PID</a> output to your implementation </p>
 
-<p>Implements <a class="el" href="classPID.html#ae375e5add824feaf60a5118d0e61cc27">PID</a>.</p>
+<p>Reimplemented from <a class="el" href="classPID.html#a236aa74e1d9aa06cd9b38abf55815e0d">PID</a>.</p>
+
+</div>
+</div>
+<a id="abe145cdd8c8aef96cb948a4e479bb007"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe145cdd8c8aef96cb948a4e479bb007">&#9670;&nbsp;</a></span>setGains()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PID::setGains</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Update gains <a class="el" href="classPID.html" title="CMSIS-DSP PID wrapper.">PID</a> algorithm </p>
 
 </div>
 </div>

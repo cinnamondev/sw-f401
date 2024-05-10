@@ -91,29 +91,34 @@ $(document).ready(function(){initNavTree('Motor_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MOTOR_HPP</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;PID.hpp&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classMotor.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMotor.html">Motor</a> : <span class="keyword">public</span> <a class="code" href="classPID.html">PID</a> {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <a class="code" href="classMotor.html">Motor</a>(<a class="code" href="structMotor_1_1Config.html">Motor::Config</a>);</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <a class="code" href="classMotor.html">Motor</a>(PinName pwm, PinName current, <a class="code" href="structPID_1_1Config.html">PID::Config</a> pidConfig);</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="structMotor_1_1Config.html">   10</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structMotor_1_1Config.html">Config</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    PinName pwm;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    PinName current;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="structPID_1_1Config.html">PID::Config</a> pidCfg;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  };</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:<span class="keywordtype">void</span> <a class="code" href="classMotor.html#a3e6d7463f7b29b13829685b03125ba1a">onCompute</a>(<span class="keywordtype">float</span>) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classMotor.html#aa7da054bd544c08c1a7aed5b8a8f669d">   16</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotor.html#aa7da054bd544c08c1a7aed5b8a8f669d">preCompute</a>(<span class="keywordtype">void</span>) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    AnalogIn current;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MOTOR_HPP</span></div>
-<div class="ttc" id="aclassMotor_html"><div class="ttname"><a href="classMotor.html">Motor</a></div><div class="ttdef"><b>Definition:</b> Motor.hpp:6</div></div>
-<div class="ttc" id="aclassMotor_html_a3e6d7463f7b29b13829685b03125ba1a"><div class="ttname"><a href="classMotor.html#a3e6d7463f7b29b13829685b03125ba1a">Motor::onCompute</a></div><div class="ttdeci">void onCompute(float) override</div><div class="ttdef"><b>Definition:</b> Motor.cpp:3</div></div>
-<div class="ttc" id="aclassMotor_html_aa7da054bd544c08c1a7aed5b8a8f669d"><div class="ttname"><a href="classMotor.html#aa7da054bd544c08c1a7aed5b8a8f669d">Motor::preCompute</a></div><div class="ttdeci">void preCompute(void) override</div></div>
-<div class="ttc" id="aclassPID_html"><div class="ttname"><a href="classPID.html">PID</a></div><div class="ttdoc">CMSIS-DSP PID wrapper.</div><div class="ttdef"><b>Definition:</b> PID.hpp:21</div></div>
-<div class="ttc" id="astructMotor_1_1Config_html"><div class="ttname"><a href="structMotor_1_1Config.html">Motor::Config</a></div><div class="ttdef"><b>Definition:</b> Motor.hpp:10</div></div>
-<div class="ttc" id="astructPID_1_1Config_html"><div class="ttname"><a href="structPID_1_1Config.html">PID::Config</a></div><div class="ttdef"><b>Definition:</b> PID.hpp:33</div></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Encoder.hpp&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classMotor.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMotor.html">Motor</a> : <span class="keyword">protected</span> <a class="code" href="classPID.html">PID</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structMotor_1_1Config.html">   17</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="structMotor_1_1Config.html">Config</a> {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    PinName pwm;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    PinName current;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="structPID_1_1Config.html">PID::Config</a> pid;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  };</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <a class="code" href="classMotor.html">Motor</a>(<a class="code" href="structMotor_1_1Config.html">Motor::Config</a> config, TIM_HandleTypeDef* tim);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">void</span> setSpeed(<span class="keywordtype">float</span> stepsPTick);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">using</span> PID::setGains;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">void</span> setConfig(<a class="code" href="structPID_1_1Config.html">PID::Config</a>) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <a class="code" href="classEncoder.html">Encoder</a> encoder;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> onCompute(<span class="keywordtype">float</span>) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMotor.html#aa7da054bd544c08c1a7aed5b8a8f669d">preCompute</a>(<span class="keywordtype">void</span>) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    PwmOut pwmOut;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">float</span> speed = 0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// MOTOR_HPP</span></div>
+<div class="ttc" id="aclassEncoder_html"><div class="ttname"><a href="classEncoder.html">Encoder</a></div><div class="ttdoc">STM32F4 HAL TIM Encoder Wrapper intended for MBED OS.</div><div class="ttdef"><b>Definition:</b> Encoder.hpp:39</div></div>
+<div class="ttc" id="aclassMotor_html"><div class="ttname"><a href="classMotor.html">Motor</a></div><div class="ttdoc">Mbed + STSTM32 Encoder + Motor PID Controller.</div><div class="ttdef"><b>Definition:</b> Motor.hpp:11</div></div>
+<div class="ttc" id="aclassMotor_html_aa7da054bd544c08c1a7aed5b8a8f669d"><div class="ttname"><a href="classMotor.html#aa7da054bd544c08c1a7aed5b8a8f669d">Motor::preCompute</a></div><div class="ttdeci">void preCompute(void) override</div><div class="ttdef"><b>Definition:</b> Motor.cpp:14</div></div>
+<div class="ttc" id="aclassPID_html"><div class="ttname"><a href="classPID.html">PID</a></div><div class="ttdoc">CMSIS-DSP PID wrapper.</div><div class="ttdef"><b>Definition:</b> PID.hpp:20</div></div>
+<div class="ttc" id="astructMotor_1_1Config_html"><div class="ttname"><a href="structMotor_1_1Config.html">Motor::Config</a></div><div class="ttdoc">Motor pinout + PID configuration.</div><div class="ttdef"><b>Definition:</b> Motor.hpp:17</div></div>
+<div class="ttc" id="astructPID_1_1Config_html"><div class="ttname"><a href="structPID_1_1Config.html">PID::Config</a></div><div class="ttdef"><b>Definition:</b> PID.hpp:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

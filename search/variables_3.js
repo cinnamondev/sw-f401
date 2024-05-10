@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hwtimer_58',['hwTimer',['../classEncoder.html#a582f5d2f11f927e206f776c7445ce37f',1,'Encoder']]]
+  ['en_90',['en',['../classBuggyController.html#af59e4a385d4c62e45e81a48b9aba8ab9',1,'BuggyController']]]
 ];

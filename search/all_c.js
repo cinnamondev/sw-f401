@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['t1_28',['t1',['../classEncoder.html#a46ca159361a59ab34d4bba69242ba5ef',1,'Encoder']]],
-  ['ticker_29',['ticker',['../classEncoder.html#a12a28de03421d48ee5d02e2ca68ec5a2',1,'Encoder']]],
-  ['tickrate_30',['tickRate',['../classEncoder.html#afbf7055d6a6795a6a5a05d5280e2d118',1,'Encoder']]],
-  ['timedelta_31',['timeDelta',['../classEncoder.html#a1ac6048076be72283111944d7f99ba24',1,'Encoder']]]
+  ['s_42',['s',['../classBluetooth.html#a9fb037fe4a2876452cbc883585e4d477',1,'Bluetooth']]],
+  ['s_5fbuff_43',['s_buff',['../classBuggyController.html#ae07ff7f00a3b66b2b739076913aa7717',1,'BuggyController']]],
+  ['setgains_44',['setGains',['../classMotor.html#abe145cdd8c8aef96cb948a4e479bb007',1,'Motor']]],
+  ['start_45',['start',['../classBluetooth.html#ae936f177a424dd87dba7c506ebdbdd6a',1,'Bluetooth::start()'],['../classEncoder.html#ad9a4d22fb29fbca6df88720348f0a851',1,'Encoder::start()']]],
+  ['steering_20control_20principle_20of_20operation_46',['steering control principle of operation',['../md_src_readme.html',1,'']]],
+  ['steps_47',['steps',['../classEncoder.html#a58cdedf94e6aeaacfbf12acee7f51f9b',1,'Encoder']]],
+  ['stop_48',['stop',['../classBluetooth.html#aa934756cfd2a749edac258ec3bb5f91b',1,'Bluetooth::stop()'],['../classEncoder.html#a1da39fbf1d85bd36ab7aaad1a34ddc80',1,'Encoder::stop()']]]
 ];
